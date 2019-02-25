@@ -83,16 +83,39 @@ const NOTICES = [
 					"Please use a word without any repeating letters."
 				];
 
+/* HTML ID tags for game page elements. */
+const OVERLAY = "overlay";
+const OVERLAY_PROMPT = "overlay_prompt";
+const PROMPT_START = "prompt_start";
+const WORD_START = "word_start";
+const NOTICE_START = "notice_start";
+
+const PLAYER_LIST = "player_list";
+const CPU_LIST = "cpu_list";
+const WORD_GUESS = "word_guess";
+
+const NOTICE_INGAME = "notice_ingame";
+
+window.onload = function() {
+	document.getElementById(WORD_START).onkeydown = function(e) {
+		var code = e.key || e.which;
+		if (code == 'Enter') {
+			start();
+		}
+	}	
+}
+
 function validInput(str) {
 	/* Check that player's word is actually a string. */
-	if (typeof player_word != "string") {
+	if (typeof str != "string") {
 		/* Ask the player to enter letters only. */		
 		return NOTSTRING;
 	}
 	
 	/* Check that player's word is exactly 5 characters long. */
-	if (player_word.length != word_length) {
-		if (player_word.length < word_length) {
+	console.log(str.length);
+	if (str.length != word_length) {
+		if (str.length < word_length) {
 			/* Player's input is not long enough. */
 			return SHORT;
 		} else {
@@ -102,20 +125,23 @@ function validInput(str) {
 	}
 	
 	/* Check that every character is actually a letter. */
-	for (c in player_word) {
-		if ((c < 'a' || c > 'z') && (c < 'A' || c > 'Z')) {
+	var i = 0;
+	var ch;
+	for (i = 0; i < word_length; i++) {
+		ch = str.charAt(i);
+		if (ch < 'a' || ch > 'z') {
 			/* One of the characters is not a letter. */
 			return HASNUM;
 		}
 	}
 	
 	/* Check that no characters are repeated. */
-	var i = 0;
-	var ch;
-	player_word = player_word.toLowerCase();
+	var str1, str2;
 	for (i = 0; i < word_length; i++) {
-		ch = player_word.charAt(i);
-		if (player_word.indexOf(ch, i + 1) != -1) {
+		str1 = str.substring(0, i);
+		str2 = str.substring(i + 1);
+		ch = str.charAt(i);
+		if (str1.indexOf(ch) != -1 || str2.indexOf(ch) != -1) {
 			/* Some character appears more than once. */
 			return REPEAT;
 		}
@@ -134,20 +160,19 @@ function start() {
 	/* Only accept input if no games are in progress. */
 	if (!PLAYING && !SAVING) {
 		/* Retrieve player input from front end and store in player_word. */
-		// TODO
-		// Get input from front end
-		// player_word = "";
+		player_word = document.getElementById(WORD_START).value;
+		player_word = player_word.toLowerCase();
 		
-		// player_word = player_word.toLowerCase();
-
 		/* Validate player's word. */
 		var code = validInput(player_word);
 		if (code == VALID) {
 			/* If word is valid, run setup() to start game. */
+			console.log("Calling setup()...");
 			setup();
 		} else {
 			/* Display notice based on error code. */
-			// var notice = NOTICES[code];
+			document.getElementById(NOTICE_START).innerHTML = NOTICES[code];
+			console.log("Invalid! " + code);
 			return;
 		}
 	}
@@ -159,42 +184,56 @@ function start() {
  * Sets up or resets any variables needed to run Jotto.
  */
 function setup() {
-	/* Reset possibleChars to contain the entire alphabet. */
-	possibleChars = alphabet;
-	
-	/* Reset boolean array for guessing the player's word. */
-	cpuCorrect = [ false, false, false, false, false ];
-	playerCorrect = [ false, false, false, false, false ];
-	
-	/* Initialize new record object. */
-	recordObj = record_template;
-	
-	/* Add date and time that game is starting at. */
-	var date = new Date();
-	recordObj.date = date.getFullYear() + "/" + date.getMonth() + "/" + date.getDate()
-						+ "-" + date.getHours() + ":" + date.getMinutes();
-	
-	/* Add player's chosen word to game record. */
-	recordObj.player_word = player_word;
-	
-	/* Add player's username to game record. */
-	// TODO
-	// Figure out how to send player's username to webpage.
-	
-	/* Generate a word for the computer. */
-	// TODO
-	// Find some way to generate valid English words
-	
-	/* Add CPU's chosen word to the game record. */
-	recordObj.cpu_word = cpu_word;
-	
-	/* Update HTML page to prompt player for input. */
-	// TODO
-	// Change elements in HTML page
-	
-	/* Enable methods for taking player guesses and making guesses. */
-	PLAYING = true;
-	SAVING = false;
+	if (!PLAYING && !SAVING) {		
+		/* Reset possibleChars to contain the entire alphabet. */
+		possibleChars = alphabet;
+		console.log(possibleChars);
+		
+		/* Reset boolean array for guessing the player's word. */
+		cpuCorrect = [ false, false, false, false, false ];
+		playerCorrect = [ false, false, false, false, false ];
+		console.log(cpuCorrect);
+		console.log(playerCorrect);
+		
+		/* Initialize new record and guess objects. */
+		recordObj = record_template;
+		guessObj = guess_template;
+		
+		/* Add date and time that game is starting at. */
+		var date = new Date();
+		recordObj.date = date.getFullYear() + "/" + date.getMonth() + "/" + date.getDate()
+							+ "-" + date.getHours() + ":" + date.getMinutes();
+		
+		/* Add player's chosen word to game record. */
+		recordObj.player_word = player_word;
+		
+		/* Add player's username to game record. */
+		// TODO
+		// Figure out how to send player's username to webpage.
+		
+		/* Generate a word for the computer. */
+		// TODO
+		// Find some way to generate valid English words
+		
+		/* Add CPU's chosen word to the game record. */
+		recordObj.cpu_word = cpu_word;
+		
+		/* Update HTML page to prompt player for input. */
+		var overlay = document.getElementById(OVERLAY);
+		overlay.style.display = "none";
+		var overlay_prompt = document.getElementById(OVERLAY_PROMPT);
+		overlay_prompt.style.display = "none";
+		/*var prompt_start = document.getElementById(PROMPT_START);
+		prompt_start.style.display = "none";
+		var word_start = document.getElementById(WORD_START);
+		word_start.style.display = "none";
+		var notice_start = document.getElementById(NOTICE_START);
+		notice_start.style.display = "none";*/
+		
+		/* Enable methods for taking player guesses and making guesses. */
+		PLAYING = true;
+		SAVING = false;
+	}
 }
 
 /* 
@@ -305,6 +344,8 @@ function makeGuess() {
 			}
 			
 			/* Show HTML elements to prompt another guess. */
+			// TODO
+			// Display HTML elements used to make guesses.
 		}
 	}
 }
@@ -316,5 +357,12 @@ function makeGuess() {
 function saveGame() {
 	/* Only continue if no games in progress. */
 	if (SAVING && !PLAYING) {
+		/* Make call to MongoDB database to save records of current game. */
+		// TODO
+		// Communicate with MongoDB to save records
+		
+		/* When done, tell the program that saving is complete. */
+		// NOTE: This should only be done in a callback when DB query is finished.
+		SAVING = false;
 	}
 }
