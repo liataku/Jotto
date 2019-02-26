@@ -5,11 +5,11 @@ import java.util.List;
 public class User{
 
     @Id
-    String id;
-    String userName;
-    String password;
+    private String id;
+    private String userName;
+    private String password;
 
-    ArrayList<Games> games;
+    private ArrayList<Games> games;
 
     public User(String id, String userName, String password)
     {
@@ -52,6 +52,17 @@ public class User{
     }
 
 
+    //adds a game to the list
+    public void addGame(Games game)
+    {
+        games.add(game);
+    }
+
+    //Loop through and return game with correct id
+    public Games getGame(String id)
+    {
+
+    }
 
 
 

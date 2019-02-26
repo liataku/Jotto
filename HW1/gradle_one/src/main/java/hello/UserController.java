@@ -23,6 +23,21 @@ public class UserController{
         List<User> users = this.userRepository.findAll();
 
     }
+    @PutMapping
+    public void insert(@RequestBody User user){
+        this.userRepository.insert(user);
+    }
+
+    @PostMapping
+    public void update(RequestBody User user){
+        this.userRepository.save(user);
+    }
+
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable("id") String id)
+    {
+        this.userRepository.delete(id);
+    }
 
 
 

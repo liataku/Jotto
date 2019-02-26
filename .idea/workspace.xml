@@ -2,11 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b452bf4f-5300-4dce-b7d3-e87341121701" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/HW1/gradle_one/src/main/java/hello/UserController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HW1/gradle_one/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/HW1/gradle_one/src/main/java/hello/Guesses.java" beforeDir="false" afterPath="$PROJECT_DIR$/HW1/gradle_one/src/main/java/hello/Guesses.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/HW1/gradle_one/src/main/java/hello/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/HW1/gradle_one/src/main/java/hello/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HW1/gradle_one/src/main/java/hello/UserRepository" beforeDir="false" afterPath="$PROJECT_DIR$/HW1/gradle_one/src/main/java/hello/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HW1/gradle_one/src/main/java/hello/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/HW1/gradle_one/src/main/java/hello/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HW1/gradle_one/src/main/java/hello/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/HW1/gradle_one/src/main/java/hello/UserRepository.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -19,17 +20,55 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/HW1/gradle_one/src/main/java/hello/Guesses.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
+            <state relative-caret-position="105">
+              <caret line="25" column="17" selection-start-line="25" selection-start-column="17" selection-end-line="25" selection-end-column="17" />
+              <folding>
+                <element signature="e#469#470#0" expanded="true" />
+                <element signature="e#494#495#0" expanded="true" />
+                <element signature="e#535#536#0" expanded="true" />
+                <element signature="e#556#557#0" expanded="true" />
+                <element signature="e#602#603#0" expanded="true" />
+                <element signature="e#623#624#0" expanded="true" />
+                <element signature="e#673#674#0" expanded="true" />
+                <element signature="e#694#695#0" expanded="true" />
+                <element signature="e#729#730#0" expanded="true" />
+                <element signature="e#755#756#0" expanded="true" />
+                <element signature="e#802#803#0" expanded="true" />
+                <element signature="e#834#835#0" expanded="true" />
+                <element signature="e#879#880#0" expanded="true" />
+                <element signature="e#909#910#0" expanded="true" />
+                <element signature="e#960#961#0" expanded="true" />
+                <element signature="e#991#992#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/HW1/gradle_one/src/main/java/hello/UserController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="208">
+              <caret line="20" column="30" lean-forward="true" selection-start-line="20" selection-start-column="30" selection-end-line="20" selection-end-column="30" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#403#404#0" expanded="true" />
+                <element signature="e#455#456#0" expanded="true" />
+                <element signature="e#646#647#0" expanded="true" />
+                <element signature="e#665#666#0" expanded="true" />
+                <element signature="e#761#762#0" expanded="true" />
+                <element signature="e#780#781#0" expanded="true" />
+                <element signature="e#894#895#0" expanded="true" />
+                <element signature="e#913#914#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/HW1/gradle_one/src/main/java/hello/UserRepository.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret selection-end-column="14" />
+            <state relative-caret-position="180">
+              <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -37,15 +76,14 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/HW1/gradle_one/src/main/java/hello/UserController.java">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/HW1/gradle_one/src/main/java/hello/User.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
+            <state relative-caret-position="240">
+              <caret line="16" column="32" lean-forward="true" selection-start-line="16" selection-start-column="32" selection-end-line="16" selection-end-column="32" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#403#404#0" expanded="true" />
-                <element signature="e#454#455#0" expanded="true" />
+                <element signature="e#935#936#0" expanded="true" />
+                <element signature="e#955#956#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -63,8 +101,10 @@
         <option value="$PROJECT_DIR$/HW1/gradle_one/src/main/java/hello/UserRepository" />
         <option value="$PROJECT_DIR$/HW1/gradle_one/src/main/java/hello/Games.java" />
         <option value="$PROJECT_DIR$/HW1/gradle_one/src/main/java/hello/User.java" />
-        <option value="$PROJECT_DIR$/HW1/gradle_one/src/main/java/hello/Guesses.java" />
         <option value="$PROJECT_DIR$/HW1/gradle_one/src/main/java/hello/UserController.java" />
+        <option value="$PROJECT_DIR$/HW1/gradle_one/src/main/resources/application.properties" />
+        <option value="$PROJECT_DIR$/HW1/gradle_one/src/main/java/hello/Guesses.java" />
+        <option value="$PROJECT_DIR$/HW1/gradle_one/src/main/java/hello/UserRepository.java" />
       </list>
     </option>
   </component>
@@ -141,37 +181,6 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="cse-308-team-green" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cse-308-team-green" type="462c0819:PsiDirectoryNode" />
-              <item name="HW1" type="462c0819:PsiDirectoryNode" />
-              <item name="gradle_one" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cse-308-team-green" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cse-308-team-green" type="462c0819:PsiDirectoryNode" />
-              <item name="HW1" type="462c0819:PsiDirectoryNode" />
-              <item name="gradle_one" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cse-308-team-green" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cse-308-team-green" type="462c0819:PsiDirectoryNode" />
-              <item name="HW1" type="462c0819:PsiDirectoryNode" />
-              <item name="gradle_one" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -182,7 +191,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1551155099740" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1551196010013" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="JAVA" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -210,12 +219,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1551145990735</updated>
-      <workItem from="1551145994620" duration="2810000" />
+      <workItem from="1551145994620" duration="4443000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2810000" />
+    <option name="totallyTimeSpent" value="4443000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="3" y="23" width="1260" height="686" extended-state="0" />
@@ -315,6 +324,9 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/HW1/gradle_one/src/main/java/hello/WebSecurityConfig.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/HW1/gradle_one/src/main/java/hello/Games.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
@@ -322,55 +334,73 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/HW1/gradle_one/src/main/java/hello/User.java">
+    <entry file="file://$PROJECT_DIR$/HW1/gradle_one/src/main/resources/application.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="810">
-          <caret line="54" lean-forward="true" selection-start-line="54" selection-end-line="54" />
-          <folding>
-            <element signature="e#419#420#0" expanded="true" />
-            <element signature="e#440#441#0" expanded="true" />
-            <element signature="e#490#491#0" expanded="true" />
-            <element signature="e#518#519#0" expanded="true" />
-            <element signature="e#576#577#0" expanded="true" />
-            <element signature="e#615#616#0" expanded="true" />
-            <element signature="e#662#663#0" expanded="true" />
-            <element signature="e#692#693#0" expanded="true" />
-            <element signature="e#733#734#0" expanded="true" />
-            <element signature="e#773#774#0" expanded="true" />
-            <element signature="e#812#813#0" expanded="true" />
-            <element signature="e#843#844#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/HW1/gradle_one/src/main/java/hello/WebSecurityConfig.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/HW1/gradle_one/src/main/java/hello/Guesses.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/HW1/gradle_one/src/main/java/hello/UserRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-column="14" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="45">
+          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/HW1/gradle_one/src/main/java/hello/UserController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
+        <state relative-caret-position="208">
+          <caret line="20" column="30" lean-forward="true" selection-start-line="20" selection-start-column="30" selection-end-line="20" selection-end-column="30" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#403#404#0" expanded="true" />
-            <element signature="e#454#455#0" expanded="true" />
+            <element signature="e#455#456#0" expanded="true" />
+            <element signature="e#646#647#0" expanded="true" />
+            <element signature="e#665#666#0" expanded="true" />
+            <element signature="e#761#762#0" expanded="true" />
+            <element signature="e#780#781#0" expanded="true" />
+            <element signature="e#894#895#0" expanded="true" />
+            <element signature="e#913#914#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/HW1/gradle_one/src/main/java/hello/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="32" lean-forward="true" selection-start-line="16" selection-start-column="32" selection-end-line="16" selection-end-column="32" />
+          <folding>
+            <element signature="e#935#936#0" expanded="true" />
+            <element signature="e#955#956#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/HW1/gradle_one/src/main/java/hello/Guesses.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="25" column="17" selection-start-line="25" selection-start-column="17" selection-end-line="25" selection-end-column="17" />
+          <folding>
+            <element signature="e#469#470#0" expanded="true" />
+            <element signature="e#494#495#0" expanded="true" />
+            <element signature="e#535#536#0" expanded="true" />
+            <element signature="e#556#557#0" expanded="true" />
+            <element signature="e#602#603#0" expanded="true" />
+            <element signature="e#623#624#0" expanded="true" />
+            <element signature="e#673#674#0" expanded="true" />
+            <element signature="e#694#695#0" expanded="true" />
+            <element signature="e#729#730#0" expanded="true" />
+            <element signature="e#755#756#0" expanded="true" />
+            <element signature="e#802#803#0" expanded="true" />
+            <element signature="e#834#835#0" expanded="true" />
+            <element signature="e#879#880#0" expanded="true" />
+            <element signature="e#909#910#0" expanded="true" />
+            <element signature="e#960#961#0" expanded="true" />
+            <element signature="e#991#992#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/HW1/gradle_one/src/main/java/hello/UserRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
