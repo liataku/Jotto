@@ -1,12 +1,28 @@
+<!--
+	authors: Benjamin Shu
+	
+	HTML page sent by server on successful client login.
+	With the help of jotto.js, allows the client to play a full game of Jotto.
+	Also saves results of finished games to database for storage.
+-->
+
 <!DOCTYPE html>
 <html>
 <head>
 	<link rel="stylesheet" href="jotto.css">
-	<title>Testing jotto.js</title>
+	<title>Jotto</title>
 </head>
 <script src="jotto.js"></script>
 <body>
+	<div id="lists">
+		<div id="player_list" class="guess_list">
+		</div>
+		<div id="cpu_list" class="guess_list">
+		</div>
+	</div>
+	
 	<div id="overlay"></div>
+	
 	<div id = "overlay_prompt">
 		<p id="prompt_start">To begin the game, enter a 5-letter word.</p>
 		<input id = "word_start" maxlength="5" placeholder="Enter"></input>

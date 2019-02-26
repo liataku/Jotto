@@ -1,5 +1,9 @@
 package hello;
-import java.util.List;
+
+import java.util.ArrayList;
+
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "Users")
 public class User{
@@ -43,12 +47,12 @@ public class User{
 
     public void setPasswordname(String passwordName)
     {
-        this.passwordName = passwordName;
+        this.password = passwordName;
     }
 
     public String getPasswordName()
     {
-        return password;
+        return this.password;
     }
 
 
@@ -61,7 +65,7 @@ public class User{
     //Loop through and return game with correct id
     public Games getGame(String id)
     {
-
+        return null;
     }
 
 

@@ -223,12 +223,6 @@ function setup() {
 		overlay.style.display = "none";
 		var overlay_prompt = document.getElementById(OVERLAY_PROMPT);
 		overlay_prompt.style.display = "none";
-		/*var prompt_start = document.getElementById(PROMPT_START);
-		prompt_start.style.display = "none";
-		var word_start = document.getElementById(WORD_START);
-		word_start.style.display = "none";
-		var notice_start = document.getElementById(NOTICE_START);
-		notice_start.style.display = "none";*/
 		
 		/* Enable methods for taking player guesses and making guesses. */
 		PLAYING = true;

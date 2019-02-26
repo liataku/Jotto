@@ -46,10 +46,25 @@ body {
 	min-height: 30px;
 }
 
+#lists {
+	text-align: center;
+}
+
+#player_list {
+	background-color: #f3f3f3;
+}
+
+#cpu_list {
+	background-color: #3f3f3f;
+	
+}
 .guess_list {
+	display: inline;
 	overflow-y: scroll;
 	max-width: 500px;
 	min-width: 500px;
+	width: 500px;
 	max-height: 700px;
 	min-height: 700px;
+	height: 700px;
 }

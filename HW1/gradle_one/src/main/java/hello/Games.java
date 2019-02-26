@@ -1,5 +1,5 @@
 package hello;
-import java.util.List;
+import java.util.ArrayList;
 
 public class Games{
 
@@ -10,10 +10,9 @@ public class Games{
 
     public Games(String date, String playerName, String cpu_Word)
     {
-
         this.date = date;
         this.playerName = playerName;
         this.cpu_Word = cpu_Word;
-        guesses = new ArrayList<Guesses>;
+        guesses = new ArrayList<Guesses>();
     }
 }
