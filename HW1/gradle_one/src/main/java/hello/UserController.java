@@ -39,6 +39,22 @@ public class UserController{
         this.userRepository.delete(id);
     }
 
+    @GetMapping("/{id}")
+    public User getById(@PathVariable("id") string id)
+    {
+        User user = this.userRepository.findById(id);
+
+        return user;
+    }
+
+    @GetMapping("/Users/{username}")
+    public List<User> getByUsername(@PathVariable("username") String userName)
+    {
+        List<User> user = this.userRepository.findByUserName(userName);
+
+        return user;
+    }
+
 
 
 }
