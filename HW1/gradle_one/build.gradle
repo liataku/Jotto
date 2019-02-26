@@ -40,6 +40,7 @@ dependencies {
     compile("org.springframework.boot:spring-boot-starter-web")
     compile("org.springframework.boot:spring-boot-starter-security")
     compile('org.springframework.boot:spring-boot-starter-tomcat')
+    compile("org.springframework.boot:spring-boot-starter-data-mongodb")
     testCompile("junit:junit")
     testCompile("org.springframework.boot:spring-boot-starter-test")
     testCompile("org.springframework.security:spring-security-test")
@@ -56,6 +57,7 @@ repositories {
 
 bootJar {
     baseName = 'gs-securing-web'
+    baseName = 'gs-accessing-data-mongodb'
     version =  '0.1.0'
 }
 /*
