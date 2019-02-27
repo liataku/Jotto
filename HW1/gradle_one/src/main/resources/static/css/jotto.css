@@ -1,9 +1,9 @@
 head {
-	background-color: powderblue;
+    background-color: powderblue;
 }
 
 body {
-	background-color: powderblue;
+    background-color: powderblue;
 }
 
 #overlay {
@@ -22,18 +22,18 @@ body {
 #overlay_prompt {
 	position: absolute;
 	display: block;
-	
+
 	width: 300px;
 	height: 300px;
-	
+
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%,-50%);
 	-ms-transform: translate(-50%,-50%);
-	
+
 	background-color: rgba(255, 255, 255, 1.0);
 	z-index: 3;
-	
+
 	text-align: center;
 }
 
@@ -51,10 +51,25 @@ body {
 	min-height: 30px;
 }
 
+#lists {
+	text-align: center;
+}
+
+#player_list {
+	background-color: #f3f3f3;
+}
+
+#cpu_list {
+	background-color: #3f3f3f;
+
+}
 .guess_list {
+	display: inline;
 	overflow-y: scroll;
 	max-width: 500px;
 	min-width: 500px;
+	width: 500px;
 	max-height: 700px;
 	min-height: 700px;
+	height: 700px;
 }

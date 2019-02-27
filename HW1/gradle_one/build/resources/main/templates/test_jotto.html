@@ -2,15 +2,26 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
 	<link rel="stylesheet" type="text/css"  href="/css/jotto.css" th:href="@{/css/jotto.css}" />
-	<title>Testing jotto.js</title>
+	<title>Jotto</title>
 </head>
+<script src="/js/jquery-3.3.1.min.js" th:src="@{/js/jquery-3.3.1.min.js}"></script>
 <script src="/js/jotto.js" th:src="@{/js/jotto.js}"></script>
 <body>
+	<div id="lists">
+		<div id="player_list" class="guess_list">
+		</div>
+		<div id="cpu_list" class="guess_list">
+		</div>
+	</div>
+
 	<div id="overlay"></div>
-	<div id = "overlay_prompt">
+	<div id="overlay_prompt">
 		<p id="prompt_start">To begin the game, enter a 5-letter word.</p>
 		<input id = "word_start" maxlength="5" placeholder="Enter"></input>
 		<p id="notice_start"></p>
+	</div>
+	<div id="overlay_notice">
+		<p id="notice_text"></p>
 	</div>
 </body>
 </html>

@@ -6,6 +6,20 @@
  *
  */
 
+/* Boolean switch to track if HTML 5 Local Storage is an option. */
+/*var STORAGE = false;*/
+
+/* Check if HTML 5 Local Storage is supported. */
+/*
+function supportsStorage() {
+	try {
+		return 'localStorage' in window && window['localStorage'] !== null;
+	} catch (e) {
+		return false;
+	}
+}
+*/
+
 /* Object used to store records of current game. */
 var recordObj = {};
 const record_template =
@@ -19,7 +33,7 @@ const record_template =
 
 /* JSON blueprint for storing records of guesses in the game record.*/
 var guessObj = {};
-const guess_template = 
+const guess_template =
 {
 	"type": "",
 	"guess": "",
@@ -48,19 +62,17 @@ var player_correct = [ false, false, false, false, false ];
 
 /* Constant for storing all possible letter inputs. */
 /*
-NOTE: When the computer eliminates characters as possibilities,
-they will be set to '-' in possibleChars[].
+ * NOTE: When the computer eliminates characters as possibilities,
+ * they will be set to '-' in possibleChars[].
 */
 const alphabet = [ 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
 				'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z' ];
 
-/* Dynamic array to hold characters that haven't been eliminated. */				
+/* Dynamic array to hold characters that haven't been eliminated. */
 var possibleChars = [];
 
 /* Control variables to determine whether the game is ready or not. */
-/*
-Note: PLAYING and SAVING should not both be 'true' at the same time.
-*/
+/* Note: PLAYING and SAVING should not both be 'true' at the same time. */
 var PLAYING = false;
 var SAVING = false;
 
@@ -70,8 +82,8 @@ const NOTSTRING		= 0;
 const SHORT			= 1;
 const LONG			= 2;
 const HASNUM		= 3;
-const NOTWORD		= 4;
-const REPEAT		= 5;
+const REPEAT		= 4;
+const NOTWORD		= 5;
 
 /* Constants to use for displaying messages to the player. */
 const NOTICES = [
@@ -79,8 +91,8 @@ const NOTICES = [
 					"This game uses 5-letter words - please pick a longer word.",
 					"This game uses 5-letter words - please pick a shorter word.",
 					"Your word must be made entirely of letters.",
-					"Please enter an actual English word.",
-					"Please use a word without any repeating letters."
+					"Please use a word without any repeating letters.",
+					"Please enter an actual English word."
 				];
 
 /* HTML ID tags for game page elements. */
@@ -96,34 +108,53 @@ const WORD_GUESS = "word_guess";
 
 const NOTICE_INGAME = "notice_ingame";
 
+/* Set up by loading dictionary of 5-letter words with no repeating letters. */
+const LETTER_FILE = "words.txt"
+var WORDS =[];
+var WORDS_LOADED = 0;
 window.onload = function() {
+	var i = 0;
+	for (i = 0; i < 26; i++) {
+	    var ch;
+        ch = alphabet[i];
+        $.get("words_" + ch + ".txt", function(words) {
+             words = words.split("\n");
+             WORDS[words[0].charAt(0)] = words;
+             WORDS_LOADED++;
+             if (WORDS_LOADED == 26) {
+                 doneLoading();
+             }
+         }, "text");
+    }
+}
+
+function doneLoading() {
 	document.getElementById(WORD_START).onkeydown = function(e) {
 		var code = e.key || e.which;
 		if (code == 'Enter') {
 			start();
 		}
-	}	
+	}
 }
 
 function validInput(str) {
 	/* Check that player's word is actually a string. */
 	if (typeof str != "string") {
-		/* Ask the player to enter letters only. */		
+		/* Ask the player to enter letters only. */
 		return NOTSTRING;
 	}
-	
+
 	/* Check that player's word is exactly 5 characters long. */
-	console.log(str.length);
 	if (str.length != word_length) {
 		if (str.length < word_length) {
 			/* Player's input is not long enough. */
 			return SHORT;
 		} else {
-			/* Player's input is too long. */			
+			/* Player's input is too long. */
 			return LONG;
 		}
 	}
-	
+
 	/* Check that every character is actually a letter. */
 	var i = 0;
 	var ch;
@@ -134,7 +165,7 @@ function validInput(str) {
 			return HASNUM;
 		}
 	}
-	
+
 	/* Check that no characters are repeated. */
 	var str1, str2;
 	for (i = 0; i < word_length; i++) {
@@ -146,9 +177,21 @@ function validInput(str) {
 			return REPEAT;
 		}
 	}
-	
-	/* Return VALID code if input passes all checks. */
-	return VALID;
+
+	/* Check that word is actually an English word. */
+	var words = WORDS[str.charAt(0)];
+	console.log(words);
+	console.log(str);
+	for (i = 0; i < words.length; i++) {
+	    console.log(words[i]);
+	    if (str === words[i].trim()) {
+	        /* If string matches another word in the dictionary, return VALID. */
+	        return VALID;
+	    }
+	}
+
+	/* Return NOTWORD code if input not found in dictionary. */
+	return NOTWORD;
 }
 
 /*
@@ -162,7 +205,7 @@ function start() {
 		/* Retrieve player input from front end and store in player_word. */
 		player_word = document.getElementById(WORD_START).value;
 		player_word = player_word.toLowerCase();
-		
+
 		/* Validate player's word. */
 		var code = validInput(player_word);
 		if (code == VALID) {
@@ -184,59 +227,51 @@ function start() {
  * Sets up or resets any variables needed to run Jotto.
  */
 function setup() {
-	if (!PLAYING && !SAVING) {		
+	if (!PLAYING && !SAVING) {
 		/* Reset possibleChars to contain the entire alphabet. */
 		possibleChars = alphabet;
-		console.log(possibleChars);
-		
+
 		/* Reset boolean array for guessing the player's word. */
 		cpuCorrect = [ false, false, false, false, false ];
 		playerCorrect = [ false, false, false, false, false ];
-		console.log(cpuCorrect);
-		console.log(playerCorrect);
-		
+
 		/* Initialize new record and guess objects. */
 		recordObj = record_template;
 		guessObj = guess_template;
-		
+
 		/* Add date and time that game is starting at. */
 		var date = new Date();
 		recordObj.date = date.getFullYear() + "/" + date.getMonth() + "/" + date.getDate()
 							+ "-" + date.getHours() + ":" + date.getMinutes();
-		
+
 		/* Add player's chosen word to game record. */
 		recordObj.player_word = player_word;
-		
+
 		/* Add player's username to game record. */
 		// TODO
-		// Figure out how to send player's username to webpage.
-		
+		// Figure out how to send player's username to web page.
+
 		/* Generate a word for the computer. */
-		// TODO
-		// Find some way to generate valid English words
-		
+		var i = Math.floor(Math.random() * 26);
+		var j = Math.floor(Math.random() * WORDS[alphabet[i]].length);
+		cpu_word = WORDS[alphabet[i]][j];
+
 		/* Add CPU's chosen word to the game record. */
 		recordObj.cpu_word = cpu_word;
-		
+
 		/* Update HTML page to prompt player for input. */
 		var overlay = document.getElementById(OVERLAY);
 		overlay.style.display = "none";
 		var overlay_prompt = document.getElementById(OVERLAY_PROMPT);
 		overlay_prompt.style.display = "none";
-		/*var prompt_start = document.getElementById(PROMPT_START);
-		prompt_start.style.display = "none";
-		var word_start = document.getElementById(WORD_START);
-		word_start.style.display = "none";
-		var notice_start = document.getElementById(NOTICE_START);
-		notice_start.style.display = "none";*/
-		
+
 		/* Enable methods for taking player guesses and making guesses. */
 		PLAYING = true;
 		SAVING = false;
 	}
 }
 
-/* 
+/*
  * Called after player makes a guess at CPU's word.
  *
  * Should be attached to an HTML element, which disappears when guess is made.
@@ -245,15 +280,13 @@ function makeGuess() {
 	/* Only take input if game is ready. */
 	if (PLAYING && !SAVING) {
 		/* Retrieve input from front end. */
-		// TODO
-		// Retrieve player's guess from HTML page
+		player_guess = document.getElementById(WORD_GUESS).value;
 		
 		/* Validate player's guess. */
 		var code = validInput(player_guess);
 		if (code != VALID){
 			/* Inform player of error and prompt for another guess. */
-			// var notice = NOTICES[code];
-			
+			var notice = NOTICES[code];
 			// TODO
 			// Update HTML page to display error message and take another prompt
 		} else {
