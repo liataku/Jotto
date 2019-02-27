@@ -19,6 +19,25 @@ body {
 	z-index: 2;
 }
 
+#overlay_notice {
+    position: absolute;
+	display: block;
+	text-size: 30px;
+
+	width: 300px;
+	height: 300px;
+
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	-ms-transform: translate(-50%,-50%);
+
+	background-color: rgba(255, 255, 255, 1.0);
+	z-index: 4;
+
+	text-align: center;
+}
+
 #overlay_prompt {
 	position: absolute;
 	display: block;
@@ -53,15 +72,21 @@ body {
 
 #lists {
 	text-align: center;
+	display: flex;
 }
 
 #player_list {
+    font-size: 25px;
 	background-color: #f3f3f3;
+	width: 50%;
+	height: 20%;
 }
 
 #cpu_list {
-	background-color: #3f3f3f;
-
+    font-size: 25px;
+	background-color: #f3f3f3;
+    width: 50%;
+    height: 20%;
 }
 .guess_list {
 	display: inline;

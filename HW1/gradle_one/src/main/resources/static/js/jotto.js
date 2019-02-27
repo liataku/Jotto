@@ -92,20 +92,26 @@ const NOTICES = [
 					"This game uses 5-letter words - please pick a shorter word.",
 					"Your word must be made entirely of letters.",
 					"Please use a word without any repeating letters.",
-					"Please enter an actual English word."
+					"Please enter an actual English word.",
+					"Loading...",
+					"Congratulations! You've lost!",
+					"Congratulations! You've won!"
 				];
 
 /* HTML ID tags for game page elements. */
 const OVERLAY = "overlay";
 const OVERLAY_PROMPT = "overlay_prompt";
+const OVERLAY_NOTICE = "overlay_notice";
+const NOTICE_TEXT = "notice_text";
 const PROMPT_START = "prompt_start";
 const WORD_START = "word_start";
 const NOTICE_START = "notice_start";
 
 const PLAYER_LIST = "player_list";
 const CPU_LIST = "cpu_list";
-const WORD_GUESS = "word_guess";
 
+const GUESS = "guess";
+const WORD_GUESS = "word_guess";
 const NOTICE_INGAME = "notice_ingame";
 
 /* Set up by loading dictionary of 5-letter words with no repeating letters. */
@@ -129,12 +135,19 @@ window.onload = function() {
 }
 
 function doneLoading() {
+    document.getElementById(OVERLAY_NOTICE).style.display = "none";
 	document.getElementById(WORD_START).onkeydown = function(e) {
 		var code = e.key || e.which;
 		if (code == 'Enter') {
 			start();
 		}
 	}
+	document.getElementById(WORD_GUESS).onkeydown = function(e) {
+        var code = e.key || e.which;
+        if (code == 'Enter') {
+            makeGuess();
+        }
+    }
 }
 
 function validInput(str) {
@@ -180,11 +193,8 @@ function validInput(str) {
 
 	/* Check that word is actually an English word. */
 	var words = WORDS[str.charAt(0)];
-	console.log(words);
-	console.log(str);
 	for (i = 0; i < words.length; i++) {
-	    console.log(words[i]);
-	    if (str === words[i].trim()) {
+	    if (str.trim() === words[i].trim()) {
 	        /* If string matches another word in the dictionary, return VALID. */
 	        return VALID;
 	    }
@@ -215,7 +225,6 @@ function start() {
 		} else {
 			/* Display notice based on error code. */
 			document.getElementById(NOTICE_START).innerHTML = NOTICES[code];
-			console.log("Invalid! " + code);
 			return;
 		}
 	}
@@ -277,22 +286,25 @@ function setup() {
  * Should be attached to an HTML element, which disappears when guess is made.
  */
 function makeGuess() {
+    console.log("Calling makeGuess()...");
 	/* Only take input if game is ready. */
 	if (PLAYING && !SAVING) {
 		/* Retrieve input from front end. */
 		player_guess = document.getElementById(WORD_GUESS).value;
+		console.log("CPU's word: " + cpu_word);
+		console.log("Player guesses: " + player_guess);
 		
 		/* Validate player's guess. */
 		var code = validInput(player_guess);
 		if (code != VALID){
 			/* Inform player of error and prompt for another guess. */
 			var notice = NOTICES[code];
-			// TODO
-			// Update HTML page to display error message and take another prompt
+			document.getElementById(NOTICE_INGAME).innerHTML = notice;
 		} else {
 			/* Hide HTML elements used to take in player's guess. */
-			// TODO
-			// Hide HTML elements, show that player's guess is being checked
+			document.getElementById(WORD_GUESS).style.display = "none";
+			document.getElementById(NOTICE_INGAME).style.display = "none";
+			document.getElementById(NOTICE_INGAME).innerHTML = "";
 			
 			/* Check characters of player's guess and mark if correct. */
 			var i = 0;
@@ -303,6 +315,8 @@ function makeGuess() {
 				player_correct[i] = (cpu_word.indexOf(ch) > -1);
 				chars_correct++;
 			}
+			console.log(player_correct);
+			console.log("chars_correct: " + chars_correct);
 			
 			/* Create JSON object to store record of player's guess and its results. */
 			guessObj = guess_template;
@@ -310,6 +324,8 @@ function makeGuess() {
 			guessObj.guess = player_guess;
 			guessObj.correct_int = chars_correct;
 			guessObj.correct_array = player_correct;
+
+			console.log(guessObj);
 			
 			/* Add record of guess to current game record. */
 			recordObj.guesses.push(guessObj);
@@ -323,7 +339,6 @@ function makeGuess() {
 					
 					PLAYING = false;
 					SAVING = true;
-					
 					saveGame();
 				}
 			}
@@ -332,11 +347,18 @@ function makeGuess() {
 			// TODO
 			// Update HTML elements to highlight correct letters
 
+			/* Add player's guess to the list of previous guesses. */
+			document.getElementById(PLAYER_LIST).innerHTML += player_guess + "<br>";
+
 			/* Generate a guess for the computer using remaining possible characters. */
-			// TODO
-			// Create an English word using some set of letters
-			// cpu_guess = "";
-			
+			ch = possibleChars[Math.floor(Math.random() * possibleChars.length)];
+			var words = WORDS[ch];
+			cpu_guess = words[Math.floor(Math.random() * words.length)].trim();
+
+			console.log("Player's word: " + player_word);
+            console.log(words);
+            console.log("CPU guess: " + cpu_guess);
+
 			/* Check CPU's guess against the player's word. */
 			chars_correct = 0;
 			for (i = 0; i < word_length; i++) {
@@ -348,10 +370,19 @@ function makeGuess() {
 				} else {
 					/* Otherwise, mark as 'false' in cpu_correct[]. */
 					cpu_correct[i] = false;
-					/* Mark character with '-' in possibleChars[]. */
-					possibleChars[(ch - 'a')] = '-';
+					/* Remove incorrect element from possibleChars[]. */
+					var j = 0;
+					for (j = 0; j < possibleChars.length; j++) {
+					    if (possibleChars[j] == ch) {
+					        possibleChars.splice(j, 1);
+					        break;
+					    }
+					}
 				}
 			}
+			console.log(cpu_correct);
+			console.log("chars_correct: " + chars_correct);
+			console.log(possibleChars);
 			
 			/* Save CPU's guess and results in a JSON object. */
 			guessObj = guess_template;
@@ -375,10 +406,13 @@ function makeGuess() {
 					saveGame();
 				}
 			}
+
+			/* Add CPU's guess to their list of previous guesses. */
+			document.getElementById(CPU_LIST).innerHTML += cpu_guess + "<br>";
 			
 			/* Show HTML elements to prompt another guess. */
-			// TODO
-			// Display HTML elements used to make guesses.
+			document.getElementById(WORD_GUESS).style.display = "";
+			document.getElementById(NOTICE_INGAME).style.display = "";
 		}
 	}
 }
