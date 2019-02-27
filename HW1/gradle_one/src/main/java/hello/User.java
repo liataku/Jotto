@@ -9,15 +9,15 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class User{
 
     @Id
-    private String id;
+    private String mongoid;
     private String userName;
     private String password;
 
     private ArrayList<Games> games;
 
-    public User(String id, String userName, String password)
+    public User(String mongoid, String userName, String password)
     {
-        this.id = id;
+        this.mongoid = mongoid;
         this.userName = userName;
         this.password = password;
 
@@ -27,12 +27,12 @@ public class User{
 
     public String getId()
     {
-        return id;
+        return mongoid;
     }
 
-    public void setId(String id)
+    public void setId(String mongoid)
     {
-        this.id = id;
+        this.mongoid = mongoid;
     }
 
     public void setUsername(String userName)

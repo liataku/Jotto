@@ -35,13 +35,13 @@ public class UserController{
     @DeleteMapping("/{id}")
     public void delete(@PathVariable("id") String id)
     {
-        this.userRepository.delete(this.userRepository.findUserID(id));
+        this.userRepository.delete(this.userRepository.findByMongoid(id));
     }
 
     @GetMapping("/{id}")
     public User getById(@PathVariable("id") String id)
     {
-        User user = this.userRepository.findUserID(id);
+        User user = this.userRepository.findByMongoid(id);
 
         return user;
     }

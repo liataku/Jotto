@@ -56,7 +56,7 @@ repositories {
 // tag::jar[]
 
 bootJar {
-    baseName = 'gs-securing-web'
+    //baseName = 'gs-securing-web'
     baseName = 'gs-accessing-data-mongodb'
     version =  '0.1.0'
 }
