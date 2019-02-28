@@ -1,0 +1,119 @@
+.buttonWrapper{
+    align:center;
+}
+button{
+   background-color: #008db5;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  font-size: 18px;
+  border-style: none;
+}
+
+button:hover {
+  background-color: white; /* Green */
+  color: #008db5;
+  border-style: none;
+}
+.container{
+   position: fixed;
+       top: 50%;
+       left: 50%;
+       -webkit-transform: translate(-50%, -50%);
+       transform: translate(-50%, -50%);
+}
+input[type=submit]{
+   background-color: #008db5;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  font-size: 18px;
+  border-style: none;
+}
+
+input[type=submit]:hover {
+  background-color: white; /* Green */
+  color: #008db5;
+  border-style: none;
+}
+h1{
+   font-family: 'Poppins', sans-serif;
+   color: white;
+   text-align: center;
+   font-size: 100px;
+   margin-bottom:5px;
+         padding-top: 0px;
+         padding-right: 0px;
+         padding-bottom: 0px;
+         padding-left: 0px;
+    height:10%;
+
+}
+h2{
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    text-align: center;
+    font-size: 32px;
+    width = %100;
+    margin-bottom:5px;
+        height:5%;
+}
+h3{
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    text-align: center;
+    font-size: 60px;
+    width = %100;
+    margin-bottom:0px;
+      padding-top: 0px;
+      padding-right: 0px;
+      padding-bottom: 0px;
+      padding-left: 0px;
+          height:5%;
+}
+h4{
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    text-align: center;
+    font-size: 24px;
+    width = %100;
+    margin-bottom:0px;
+      padding-top: 0px;
+      padding-right: 0px;
+      padding-bottom: 0px;
+      padding-left: 0px;
+          height:5%;
+}
+
+body{
+  height: 100%;
+  width: 100%;
+  margin: 0;
+      background-image:
+                      linear-gradient(to top,
+                      #baffda,
+                      #a6f4d4,
+                      #91eacf,
+                      #7cdfca,
+                      #65d4c6,
+                      #4cc8c4,
+                      #30bcc2,
+                      #00afbf,
+                      #009ebb,
+                      #008db5,
+                      #007cac,
+                      #006ba1);
+      /* Center and scale the image nicely */
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: 100%;
+      border: 1px solid transparent;
+}
+body,html{
+  /* Full height */
+  height: 100%;
+  width: 100%;
+  margin: 0;
+}
