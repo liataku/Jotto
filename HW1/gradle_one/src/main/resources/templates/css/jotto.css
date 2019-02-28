@@ -1,11 +1,3 @@
-head {
-    background-color: powderblue;
-}
-
-body {
-    background-color: powderblue;
-}
-
 #overlay {
 	position: fixed;
 	display: block;
@@ -71,30 +63,14 @@ body {
 }
 
 #lists {
-	text-align: center;
-	display: flex;
 }
 
 #player_list {
-    font-size: 25px;
-	background-color: #f3f3f3;
-	width: 50%;
-	height: 20%;
 }
 
 #cpu_list {
-    font-size: 25px;
-	background-color: #f3f3f3;
-    width: 50%;
-    height: 20%;
 }
 .guess_list {
 	display: inline;
 	overflow-y: scroll;
-	max-width: 500px;
-	min-width: 500px;
-	width: 500px;
-	max-height: 700px;
-	min-height: 700px;
-	height: 700px;
 }

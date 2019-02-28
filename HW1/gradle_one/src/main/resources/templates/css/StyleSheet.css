@@ -258,8 +258,10 @@ body{
       border: 1px solid transparent;
 }
 body,html{
+  font-family: 'Poppins', sans-serif;
   /* Full height */
   height: 100%;
   width: 100%;
   margin: 0;
+  color:white;
 }
