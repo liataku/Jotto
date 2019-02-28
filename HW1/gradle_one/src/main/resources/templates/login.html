@@ -7,6 +7,7 @@
     <title>Sign In </title>
 </head>
 <body>
+<div class="fade-in">
 <div class = "container">
 <div th:if="${param.error}" style="line-height:5%">
     <h4>Invalid username and password.<h4>
@@ -23,6 +24,7 @@
     </br>
     <div style="line-height:10%" align="center"><input type="submit" value="Sign In"/></div>
 </form>
+</div>
 </div>
 </body>
 </html>

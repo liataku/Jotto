@@ -8,30 +8,72 @@
 </head>
 <script src="/js/jquery-3.3.1.min.js" th:src="@{/js/jquery-3.3.1.min.js}"></script>
 <script src="/js/jotto.js" th:src="@{/js/jotto.js}"></script>
-<div class = "container">
 <body>
-	<div id="lists">
-		<div id="player_list" class="guess_list" align="center">
-			<h4>Player's Guesses</h4>
-		</div>
-		<div id="cpu_list" class="guess_list">
-			<h4>CPU's Guesses</h4>
-		</div>
-	</div>
-	<div id="guess" align="center">
-		<input id="word_guess" maxlength="5" placeholder="Enter">
-		<p id="notice_ingame"></p>
-	</div>
+<table>
+	<tr valign="bottom" style="height:10%">
+		<td style="width:25%">
+			<h2>Player's Guesses</h2>
+		</td>
+		<td style="width:50% align:center">
+		</td>
+		<td style="width:25%">
+			<h2>CPU's Guesses</h2>
+		</td>
+	</tr>
+	<tr valign="top" style="height=90%">
+		<td style="width:25% height:50%">
+			<div class="wordsLeft">
+			Player guesses go here <br>
+			Player guesses go here <br>
+			Player guesses go here <br>
+			Player guesses go here <br>
+			Player guesses go here <br>
+			Player guesses go here <br>
+			Player guesses go here <br>
+			</div>
+		</td>
+		<td style="width:50% vertical-align:bottom">
+			<div class="fade-in">
+			<div class = "gameInput">
+						<div class="gameInputWrapper">
+							<div class="textInputWrapper">
+						<input id="word_guess" maxlength="5" placeholder="Enter">
+						<p id="notice_ingame"></p>
+						<h4 id="prompt_start">To begin the game, enter a 5-letter word.</h4>
+						<input id = "word_start" maxlength="5" placeholder="Enter">
+						<p id="notice_start"></p>
+						<h4 id="notice_text">Loading...</h4>
+							</div>
+			</div>
+			<br>
+			<br>
+			<div class="item">
+			<a href="">
+				<p class="label success new-label"><span class="align">Need Help?</span></p>
+			</a>
+			</div>
+			</div>
+			</div>
 
-	<div id="overlay" align="center"></div>
-	<div id="overlay_prompt" align="center">
-		<h4 id="prompt_start">To begin the game, enter a 5-letter word.</h4>
-		<input id = "word_start" maxlength="5" placeholder="Enter">
-		<p id="notice_start"></p>
-	</div>
-	<div id="overlay_notice" align="center">
-		<h4 id="notice_text">Loading...</h4>
-	</div>
-</div>
+
+		</td>
+<td style="width:25% height=%50">
+			<div class="wordsRight">
+			CPU guesses go here <br>
+			CPU guesses go here <br>
+			CPU guesses go here <br>
+			CPU guesses go here <br>
+			CPU guesses go here <br>
+			CPU guesses go here <br>
+			CPU guesses go here <br>
+			CPU guesses go here <br>
+			CPU guesses go here <br>
+			CPU guesses go here <br>
+			</div>
+</td>
+
+
+	</tr>
+</table>
 </body>
 </html>
