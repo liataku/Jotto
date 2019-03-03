@@ -6,7 +6,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "Users")
-public class User{
+public class Users{
 
     @Id
     private String mongoid;
@@ -15,7 +15,7 @@ public class User{
 
     private ArrayList<Games> games;
 
-    public User(String mongoid, String userName, String password)
+    public Users(String mongoid, String userName, String password)
     {
         this.mongoid = mongoid;
         this.userName = userName;

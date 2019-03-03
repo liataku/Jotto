@@ -24,7 +24,7 @@ public class UserController{
     @GetMapping(path = "/AllUsers", produces =  "application/json", consumes = "application/json")
     public JSONObject getAllUsers()
     {
-        List<User> users = this.userRepository.findAll();
+        List<Users> users = this.userRepository.findAll();
         JSONObject tmp = new JSONObject();
         try {
             for(int i = 0; i < users.size(); i++)
@@ -42,9 +42,9 @@ public class UserController{
     }
     //Returns all games ever played
     @GetMapping(path = "/AllGames", produces =  "application/json", consumes = "application/json")
-    public ArrayList<Games> getAllGames()
+    public JSONArray getAllGames()
     {
-        List<User> users = this.userRepository.findAll();
+        List<Users> users = this.userRepository.findAll();
 
         JSONArray gameArray = new JSONArray();
 
@@ -62,11 +62,11 @@ public class UserController{
 
     //Returns all guesses that have ever been made ever
     @GetMapping(path = "/AllGuesses", produces =  "application/json", consumes = "application/json")
-    public ArrayList<Guesses> getAllGuesses()
+    public JSONArray getAllGuesses()
     {
         ArrayList<Games> gameList = getAllGames();
 
-        ArrayList<Guesses> gl = new ArrayList<Guesses>();
+        JSONArray gl = new JSONArray();
 
 
         for(int i = 0; i < gameList.size(); i++)
@@ -86,11 +86,11 @@ public class UserController{
 
     //Returns a list of all of a single users guesses
     @GetMapping(path = "/AllUserGuesses/{id}", produces =  "application/json", consumes = "application/json")
-    public ArrayList<Guesses> getAllUserGuesses(@PathVariable(name = "id") String id)
+    public JSONArray getAllUserGuesses(@PathVariable(name = "id") String id)
     {
-        User user = userRepository.findByMongoid(id);
+        Users user = userRepository.findByMongoid(id);
         ArrayList<Games> gamesList = user.getAllGamesFromUser();
-        ArrayList<Guesses> gl = new ArrayList<Guesses>();
+        JSONArray gl = new JSONArray();
 
         for(int i = 0; i < gamesList.size(); i++)
         {
@@ -106,19 +106,19 @@ public class UserController{
     }
 
 
-    @PutMapping("/InsertUser")
-    public void insert(@RequestBody User user){
+    @PutMapping(value = "/InsertUser", consumes = "application/json")
+    public void insert(@RequestBody JSONArray user){
         this.userRepository.insert(user);
     }
 
     @PostMapping(path = "/AddUser", consumes =  "application/json")
-    public void update(@RequestBody User user) {
+    public void update(@RequestBody Users user) {
         this.userRepository.save(user);
 
     }
 
     @PutMapping("/UpdateUser")
-    public void add(@RequestBody User user) {
+    public void add(@RequestBody Users user) {
         this.userRepository.save(user);
     }
 
@@ -132,7 +132,7 @@ public class UserController{
     @GetMapping(path = "GetUser/{id}", produces =  "application/json", consumes = "application/json")
     public JSONObject getById(@PathVariable("id") String id)
     {
-        User user = this.userRepository.findByMongoid(id);
+        Users user = this.userRepository.findByMongoid(id);
         String mongoid = user.getId();
         String username = user.getUserName();
         String password = user.getPasswordName();
@@ -152,7 +152,7 @@ public class UserController{
     @GetMapping(path = "/Users/{username}", produces =  "application/json", consumes = "application/json")
     public JSONObject getByUsername(@PathVariable("username") String userName)
     {
-        User user = this.userRepository.findByUserName(userName);
+        Users user = this.userRepository.findByUserName(userName);
         String mongoid = user.getId();
         String username = user.getUserName();
         String password = user.getPasswordName();

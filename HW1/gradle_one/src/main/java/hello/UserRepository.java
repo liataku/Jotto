@@ -5,7 +5,7 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface UserRepository extends MongoRepository<User, String> {
+public interface UserRepository extends MongoRepository<Users, String> {
 
     //findUserId and findByUserName had outdated search
     //queries, changed from firstName and lastName to
@@ -18,7 +18,7 @@ public interface UserRepository extends MongoRepository<User, String> {
     //CrudRepository so to avoid override conflict
     //I had to temporarily change all instances of
     //"id" to "mongoid", please change as needed. - Peter
-    public User findByMongoid(String mongoid);
+    public Users findByMongoid(String mongoid);
 
-    public User findByUserName(String userName);
+    public Users findByUserName(String userName);
 }

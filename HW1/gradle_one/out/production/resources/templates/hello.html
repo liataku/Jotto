@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <link rel="stylesheet" type="text/css" href="/css/jotto.css" th:href="@{/css/jotto.css}" >
+    <link rel="stylesheet" type="text/css" href="/css/StyleSheet.css" th:href="@{/css/StyleSheet.css}" >
+    <link href="https://fonts.googleapis.com/css?family=Poppins:500" rel="stylesheet">
+    <title>JOTTO</title>
+    <meta charset = "utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<div class ="fade-in">
+    <div class = "container">
+    <h1>JOTTO</h1>
+    <h2>Welcome [[${#httpServletRequest.remoteUser}]]!</h2>
+    <div align="center">
+    <form th:action="@{/logout}" method="post">
+        </br>
+        </br>
+        <input type="submit" value="Not you? Sign out."/>
+    </form>
+    </div>
+    </div>
+</div>
+</body>
+</html>
