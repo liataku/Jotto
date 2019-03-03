@@ -60,6 +60,18 @@ public class UserController{
         return gameArray;
     }
 
+    //Returns all games a user has played
+
+    @GetMapping(path = "/AllUserGames/{id}", produces =  "application/json", consumes = "application/json")
+    public ArrayList<Games> getAllUserGames(@PathVariable(name = "id") String id)
+    {
+        Users user = userRepository.findByMongoid(id);
+        ArrayList<Games> gamesList = user.getAllGamesFromUser();
+
+        return gamesList;
+
+    }
+
     //Returns all guesses that have ever been made ever
     @GetMapping(path = "/AllGuesses", produces =  "application/json", consumes = "application/json")
     public JSONArray getAllGuesses()
