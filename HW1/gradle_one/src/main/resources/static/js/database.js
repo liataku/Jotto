@@ -15,12 +15,6 @@ function getAllUsers(){
     })
 
 
-}
-function saveUser()
-{
-    $.post("http:localhost:8080/users//AddUser", userData, function(){alert("User has been added")})
-
-}
 
 $("#addUserButton").click(saveUser())
 

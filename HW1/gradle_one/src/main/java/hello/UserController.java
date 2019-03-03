@@ -106,22 +106,23 @@ public class UserController{
     }
 
 
-    @PutMapping(value = "/InsertUser", consumes = "application/json")
+    @PutMapping(value = "/AddUser", consumes = "application/json")
     public void insert(@RequestBody Users user){
+        delete(user.getId());
         this.userRepository.insert(user);
     }
 
-    @PostMapping(path = "/AddUser", consumes =  "application/json")
+    @PostMapping(path = "/UpdateUser", consumes =  "application/json")
     public void update(@RequestBody Users user) {
-
         this.userRepository.save(user);
 
     }
 
-    @PutMapping("/UpdateUser")
+    // adds a user to the database
+   /* @PutMapping("/AddUser")
     public void add(@RequestBody Users user) {
         this.userRepository.save(user);
-    }
+    }*/
 
     @DeleteMapping("/Delete/{id}")
     public void delete(@PathVariable("id") String id)
