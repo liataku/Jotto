@@ -2,20 +2,30 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
-    <link rel="stylesheet" type="text/css"  href="/css/jotto.css" th:href="@{/css/jotto.css}" />
-    <title>Spring Security Example </title>
+    <link rel="stylesheet" type="text/css"  href="css/StyleSheet.css">
+    <link rel="stylesheet" type="text/css"  href="css/jotto.css" th:href="@{/css/jotto.css}" >
+    <link href="https://fonts.googleapis.com/css?family=Poppins:500" rel="stylesheet">
+    <title>Sign In </title>
 </head>
 <body>
-<div th:if="${param.error}">
-    Invalid username and password.
+<div class="fade-in">
+<div class = "container">
+<div th:if="${param.error}" style="line-height:5%">
+    <h4>Invalid username and password.<h4>
 </div>
-<div th:if="${param.logout}">
-    You have been logged out.
+<div th:if="${param.logout}" style="line-height:5%">
+    <h4>You have been logged out.</h4>
 </div>
+</br>
+</br>
 <form th:action="@{/login}" method="post">
-    <div><label> User Name : <input type="text" name="username"/> </label></div>
-    <div><label> Password: <input type="password" name="password"/> </label></div>
-    <div><input type="submit" value="Sign In"/></div>
+    <div style="line-height:10%" align="center"><h2><label> User Name : <input type="text" name="username"/> </label></h2></div>
+    <div style="line-height:10%" align="center"><h2><label> Password: <input type="password" name="password"/> </label></h2></div>
+    </br>
+    </br>
+    <div style="line-height:10%" align="center"><input type="submit" value="Sign In"/></div>
 </form>
+</div>
+</div>
 </body>
 </html>

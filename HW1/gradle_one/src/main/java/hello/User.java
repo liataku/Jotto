@@ -20,9 +20,13 @@ public class User{
         this.mongoid = mongoid;
         this.userName = userName;
         this.password = password;
-
         games = new ArrayList<Games>();
 
+    }
+
+    public ArrayList<Games> getAllGamesFromUser()
+    {
+        return games;
     }
 
     public String getId()
@@ -63,9 +67,18 @@ public class User{
     }
 
     //Loop through and return game with correct id
-    public Games getGame(String id)
+    public Games getGame(int id)
     {
+        for(int i = 0; i < games.size(); i++)
+        {
+            if(games.get(i).getGameNum() == id)
+            {
+                return games.get(i);
+            }
+        }
+
         return null;
+
     }
 
 

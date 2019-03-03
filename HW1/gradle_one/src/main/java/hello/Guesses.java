@@ -43,26 +43,30 @@ public class Guesses{
         return correct_num;
     }
 
-   public void setId(String id)
+    public void setId(String id)
    {
        this.id = id;
    }
 
-   public void setGuess(String guess)
+    public void setGuess(String guess)
    {
        this.guess = guess;
    }
 
-   public void setType(String type)
+    public void setType(String type)
    {
        this.type = type;
    }
 
-   public void setCorrect_num(String num)
+    public void setCorrect_num(String num)
    {
        this.correct_Array.add(num);
    }
 
-
-
+    public ArrayList<String> getCorrect_Array() {
+        return correct_Array;
+    }
+    public void setCorrect_Array(ArrayList<String> correct_Array) {
+        this.correct_Array = correct_Array;
+    }
 }
