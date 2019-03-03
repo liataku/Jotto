@@ -1,12 +1,26 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
-    <link rel="stylesheet" type="text/css"  href="/css/jotto.css" th:href="@{/css/jotto.css}" />
-    <title>Welcome to JOTTO!</title>
+    <link rel="stylesheet" type="text/css" href="/css/jotto.css" th:href="@{/css/jotto.css}" >
+    <link rel="stylesheet" type="text/css" href="/css/StyleSheet.css" th:href="@{/css/StyleSheet.css}" >
+    <link href="https://fonts.googleapis.com/css?family=Poppins:500" rel="stylesheet"><title>Welcome to JOTTO!</title>
 </head>
 <body>
-<h1 style="color:blue;">Welcome to JOTTO!</h1>
+<div class="fade-in">
+<div class = "container" >
+    <div style="line-height:10%">
+        <h3>Welcome to </h3> <h1>JOTTO!</h1>
+    </div>
+    </br>
+    </br>
+    </br>
+    </br>
+    <div class = "buttonWrapper" align="center">
+        <button onclick="@{/test_jotto}">Sign In!</button>
+    </div>
+</div>
+</div>
 
-<p>Click <a th:href="@{/test_jotto}">here</a> to log in.</p>
+
 </body>
 </html>
