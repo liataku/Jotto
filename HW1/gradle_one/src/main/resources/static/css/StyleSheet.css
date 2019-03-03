@@ -1,3 +1,34 @@
+/*Scrollbar stuff*/
+::-webkit-scrollbar {
+  width: 10px;
+}
+/* Track */
+::-webkit-scrollbar-track {
+   background: rgba(0,0,0,0);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+   background: rgba(0,0,0,0.3);
+      border: 1px solid transparent;
+      border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+   background: rgba(0,0,0,0.5);
+         border: 1px solid transparent;
+         border-radius: 5px;
+}
+.parent {
+  overflow: auto;
+  transform: scaleX(-1); //Reflects the parent horizontally
+}
+
+.sleeve {
+  transform: scaleX(-1); //Flips the child back to normal
+}
+
 @keyframes fadeIn{
   0% {
     opacity:0;
@@ -114,9 +145,14 @@ table{
        align: center;
        text-align: center;
        font-size: 18px;
-       opacity:.85
+       opacity:.85;
+   border: 2px solid transparent;
+   border-radius: 25px;
+         background: rgba(0,0,0,0.1);
+       	height: 70%;
+       	overflow-y: scroll;
 
-       overflow-y: scroll;
+
 }
 .wordsLeft{
        font-family: 'Poppins', sans-serif;
@@ -125,9 +161,13 @@ table{
        text-align: center;
        vertical-align:top;
        font-size: 18px;
-       opacity:.85
+       opacity:.85;
+          border: 2px solid transparent;
+          border-radius: 25px;
+        background: rgba(0,0,0,0.1);
+       	height: 70%;
+       	overflow-y: scroll;
 
-	   overflow-y: scroll;
 }
 .cardLeft{
     opacity:.85
@@ -149,6 +189,7 @@ table{
    border: 2px solid transparent;
    border-radius: 25px;
    padding: 20px;
+   height:70%;
    background: rgba(0,0,0,0.1);
 }
 button{
@@ -190,7 +231,6 @@ input[type=submit]:hover {
 }
 h1{
    font-family: 'Poppins', sans-serif;
-   color: white;
    text-align: center;
    font-size: 100px;
    margin-bottom:5px;
@@ -203,7 +243,6 @@ h1{
 }
 h2{
     font-family: 'Poppins', sans-serif;
-    color: white;
     text-align: center;
     font-size: 32px;
     width = %100;
@@ -212,7 +251,6 @@ h2{
 }
 h3{
     font-family: 'Poppins', sans-serif;
-    color: white;
     text-align: center;
     font-size: 60px;
     width = %100;
@@ -225,7 +263,6 @@ h3{
 }
 h4{
     font-family: 'Poppins', sans-serif;
-    color: white;
     text-align: center;
     font-size: 24px;
     width = %100;
@@ -260,6 +297,7 @@ body{
       background-repeat: no-repeat;
       background-size: 100%;
       border: 1px solid transparent;
+      background-size:contain;
 }
 body,html{
   font-family: 'Poppins', sans-serif;

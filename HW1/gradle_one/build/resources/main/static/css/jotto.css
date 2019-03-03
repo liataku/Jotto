@@ -71,8 +71,4 @@
 #cpu_list {
 }
 .guess_list {
-	display: inline;
-	overflow-y: scroll;
-	max-height: 60%;
-	min-height: 60%;
 }

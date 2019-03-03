@@ -334,8 +334,9 @@ function makeGuess() {
 			if (chars_correct == word_length) {
 				if (player_guess === cpu_word) {
 					/* Inform player that they have won the game, then save game record. */
-					// TODO
-					// Display notice telling player that they have won.
+					document.getElementById(OVERLAY).style.display = "block";
+					document.getElementById(OVERLAY_PROMPT).innerHTML = "You won!";
+					document.getElementById(OVERLAY_PROMPT).style.display = "block";
 					
 					PLAYING = false;
 					SAVING = true;
@@ -403,8 +404,9 @@ function makeGuess() {
 			if (chars_correct == word_length) {
 				if (cpu_guess === player_word) {
 					/* If CPU has successfully guessed player's word, inform player of their loss. */
-					// TODO
-					// Display notice in HTML page that player has lost.
+					document.getElementById(OVERLAY).style.display = "block";
+					document.getElementById(OVERLAY_PROMPT).innerHTML = "You lost!";
+					document.getElementById(OVERLAY_PROMPT).style.display = "block";
 					
 					PLAYING = false;
 					SAVING = true;
