@@ -20,5 +20,5 @@ public interface UserRepository extends MongoRepository<User, String> {
     //"id" to "mongoid", please change as needed. - Peter
     public User findByMongoid(String mongoid);
 
-    public List<User> findByUserName(String userName);
+    public User findByUserName(String userName);
 }

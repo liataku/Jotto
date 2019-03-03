@@ -1,14 +1,20 @@
 
 
 // Returns a list of all a users guesses
-function getGuesses(var id)
+function getGuesses()
 {
 
 }
 
 function getAllUsers(){
 
-    $.get("http://localhost:8080/users/all")
+    var userList = $.get("http://localhost:8080/users/AllUsers", function(data)
+    {
+        var password = data["password"]
+        alert(password);
+    })
+
+
 }
 
 function getUser(){}

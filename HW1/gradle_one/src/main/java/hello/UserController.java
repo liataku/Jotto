@@ -21,7 +21,7 @@ public class UserController{
     }
 
     //Returns a list of all Users
-    @GetMapping(path = "/AllUsers", produces =  "application/json")
+    @GetMapping(path = "/AllUsers", produces =  "application/json", consumes = "application/json")
     public JSONObject getAllUsers()
     {
         List<User> users = this.userRepository.findAll();
@@ -29,10 +29,10 @@ public class UserController{
         try {
             for(int i = 0; i < users.size(); i++)
             {
-                tmp.put("Id", users.get(i).getId()); //some public getters inside GraphUser?
-                tmp.put("Username", users.get(i).getUserName());
-                tmp.put("Password", users.get(i).getPasswordName());
-                tmp.put("Games" , users.get(i).getAllGamesFromUser());
+                tmp.put("id", users.get(i).getId()); //some public getters inside GraphUser?
+                tmp.put("username", users.get(i).getUserName());
+                tmp.put("password", users.get(i).getPasswordName());
+                tmp.put("games" , users.get(i).getAllGamesFromUser());
             }
         } catch(Exception e)
         {
@@ -41,11 +41,10 @@ public class UserController{
         return tmp;
     }
     //Returns all games ever played
-    @GetMapping(path = "/AllGames", produces =  "application/json")
-    public JSONObject getAllGames()
+    @GetMapping(path = "/AllGames", produces =  "application/json", consumes = "application/json")
+    public ArrayList<Games> getAllGames()
     {
         List<User> users = this.userRepository.findAll();
-        JSONObject tmp = new JSONObject();
 
         JSONArray gameArray = new JSONArray();
 
@@ -58,16 +57,15 @@ public class UserController{
             }
         }
 
-        tmp.put("Games",gameArray);
-        return tmp;
+        return gameArray;
     }
 
-    //Returns all guess that have ever been made ever
-    @GetMapping(path = "/AllGuesses", produces =  "application/json")
-    public JSONObject getAllGuesses()
+    //Returns all guesses that have ever been made ever
+    @GetMapping(path = "/AllGuesses", produces =  "application/json", consumes = "application/json")
+    public ArrayList<Guesses> getAllGuesses()
     {
-        JSONObject gamesObject = getAllGames();
-        ArrayList<Games> gameList = (ArrayList<Games>) gamesObject.get("Games");
+        ArrayList<Games> gameList = getAllGames();
+
         ArrayList<Guesses> gl = new ArrayList<Guesses>();
 
 
@@ -83,14 +81,12 @@ public class UserController{
 
         }
 
-        JSONObject tmp = new JSONObject();
-        tmp.put("Guesses", gl);
-        return tmp;
+        return gl;
     }
 
     //Returns a list of all of a single users guesses
-    @GetMapping(path = "/AllUserGuesses/{id}", produces =  "application/json")
-    public JSONObject getAllUserGuesses(@PathVariable(name = "id") String id)
+    @GetMapping(path = "/AllUserGuesses/{id}", produces =  "application/json", consumes = "application/json")
+    public ArrayList<Guesses> getAllUserGuesses(@PathVariable(name = "id") String id)
     {
         User user = userRepository.findByMongoid(id);
         ArrayList<Games> gamesList = user.getAllGamesFromUser();
@@ -106,11 +102,7 @@ public class UserController{
             }
         }
 
-        JSONObject tmp = new JSONObject();
-        tmp.put("Guesses", gl);
-
-
-        return tmp;
+        return gl;
     }
 
 
@@ -136,21 +128,42 @@ public class UserController{
         this.userRepository.delete(this.userRepository.findByMongoid(id));
     }
 
-    @GetMapping(path = "GetUser/{id}", produces =  "application/json")
+    //Returns a user object to client
+    @GetMapping(path = "GetUser/{id}", produces =  "application/json", consumes = "application/json")
     public JSONObject getById(@PathVariable("id") String id)
     {
         User user = this.userRepository.findByMongoid(id);
+        String mongoid = user.getId();
+        String username = user.getUserName();
+        String password = user.getPasswordName();
+
+        ArrayList<Games> games = user.getAllGamesFromUser();
         JSONObject tmp = new JSONObject();
-        tmp.put("User", user);
+
+        tmp.put("id", mongoid);
+        tmp.put("username",username);
+        tmp.put("password", password);
+        tmp.put("games", games);
+
         return tmp;
     }
 
-    @GetMapping(path = "/Users/{username}", produces =  "application/json")
+    //Returns a user back to client using the name
+    @GetMapping(path = "/Users/{username}", produces =  "application/json", consumes = "application/json")
     public JSONObject getByUsername(@PathVariable("username") String userName)
     {
-        List<User> user = this.userRepository.findByUserName(userName);
+        User user = this.userRepository.findByUserName(userName);
+        String mongoid = user.getId();
+        String username = user.getUserName();
+        String password = user.getPasswordName();
+
+        ArrayList<Games> games = user.getAllGamesFromUser();
         JSONObject tmp = new JSONObject();
-        tmp.put("User", user);
+        tmp.put("id", mongoid);
+        tmp.put("username",username);
+        tmp.put("password", password);
+        tmp.put("games", games);
+
         return tmp;
     }
 }
