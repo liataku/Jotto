@@ -113,8 +113,10 @@ table{
        vertical-align:top;
        align: center;
        text-align: center;
-       font-size: 14px;
+       font-size: 18px;
        opacity:.85
+
+       overflow-y: scroll;
 }
 .wordsLeft{
        font-family: 'Poppins', sans-serif;
@@ -122,8 +124,10 @@ table{
        align: center;
        text-align: center;
        vertical-align:top;
-       font-size: 14px;
+       font-size: 18px;
        opacity:.85
+
+	   overflow-y: scroll;
 }
 .cardLeft{
     opacity:.85

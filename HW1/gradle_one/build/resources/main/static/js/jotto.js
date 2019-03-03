@@ -313,7 +313,7 @@ function makeGuess() {
 				/* If character at i is in cpu_word, show that in player_correct[]. */
 				ch = player_guess.charAt(i);
 				player_correct[i] = (cpu_word.indexOf(ch) > -1);
-				chars_correct++;
+				if (player_correct[i]) { chars_correct++; }
 			}
 			console.log(player_correct);
 			console.log("chars_correct: " + chars_correct);
@@ -342,13 +342,18 @@ function makeGuess() {
 					saveGame();
 				}
 			}
-			
-			/* Show player which of their letters were correct using player_correct[]. */
-			// TODO
-			// Update HTML elements to highlight correct letters
 
 			/* Add player's guess to the list of previous guesses. */
-			document.getElementById(PLAYER_LIST).innerHTML += player_guess + "<br>";
+			var str_guess = "<p>", i = 0;
+			for (i = 0; i < player_correct.length; i++) {
+			    if (player_correct[i]) {
+			        str_guess += "<mark style=\"background-color:#55a866\">" + player_guess.charAt(i) + "</mark>";
+			    } else {
+			        str_guess += "<mark style=\"background-color:#a85555\">" + player_guess.charAt(i) + "</mark>";
+			    }
+			}
+			str_guess += " " + chars_correct + "/5</p>";
+			document.getElementById(PLAYER_LIST).innerHTML += str_guess;
 
 			/* Generate a guess for the computer using remaining possible characters. */
 			ch = possibleChars[Math.floor(Math.random() * possibleChars.length)];
@@ -406,9 +411,18 @@ function makeGuess() {
 					saveGame();
 				}
 			}
+            str_guess = "<p>";
+            for (i = 0; i < cpu_correct.length; i++) {
+                if (cpu_correct[i]) {
+                    str_guess += "<mark style=\"background-color:#55a866\">" + cpu_guess.charAt(i) + "</mark>";
+                } else {
+                    str_guess += "<mark style=\"background-color:#a85555\">" + cpu_guess.charAt(i) + "</mark>";
+                }
+            }
+            str_guess += " " + chars_correct + "/5</p>";
 
 			/* Add CPU's guess to their list of previous guesses. */
-			document.getElementById(CPU_LIST).innerHTML += cpu_guess + "<br>";
+			document.getElementById(CPU_LIST).innerHTML += str_guess;
 			
 			/* Show HTML elements to prompt another guess. */
 			document.getElementById(WORD_GUESS).style.display = "";
