@@ -2,14 +2,13 @@ package hello;
 import java.util.ArrayList;
 import java.util.Date;
 
+
 public class Games{
 
     private Date date;
     private String playerName;
     private String cpu_Word;
     private ArrayList<Guesses> guesses;
-
-
     private int gameNum = 0;
 
     public Games(Date date, String playerName, String cpu_Word)
