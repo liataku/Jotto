@@ -22,23 +22,23 @@ public class UserController{
 
     //Returns a list of all Users
     @GetMapping(path = "/AllUsers", produces =  "application/json", consumes = "application/json")
-    public JSONObject getAllUsers()
+    public List<Users> getAllUsers()
     {
         List<Users> users = this.userRepository.findAll();
-        JSONObject tmp = new JSONObject();
-        try {
-            for(int i = 0; i < users.size(); i++)
-            {
-                tmp.put("id", users.get(i).getId()); //some public getters inside GraphUser?
-                tmp.put("username", users.get(i).getUserName());
-                tmp.put("password", users.get(i).getPasswordName());
-                tmp.put("games" , users.get(i).getAllGamesFromUser());
-            }
-        } catch(Exception e)
-        {
-            System.out.println("User not added \n");
-        }
-        return tmp;
+//        JSONObject tmp = new JSONObject();
+//        try {
+//            for(int i = 0; i < users.size(); i++)
+//            {
+//                tmp.put("id", users.get(i).getId()); //some public getters inside GraphUser?
+//                tmp.put("username", users.get(i).getUserName());
+//                tmp.put("password", users.get(i).getPasswordName());
+//                tmp.put("games" , users.get(i).getAllGamesFromUser());
+//            }
+//        } catch(Exception e)
+//        {
+//            System.out.println("User not added \n");
+//        }
+        return users;
     }
     //Returns all games ever played
     @GetMapping(path = "/AllGames", produces =  "application/json", consumes = "application/json")
@@ -132,40 +132,40 @@ public class UserController{
 
     //Returns a user object to client
     @GetMapping(path = "GetUser/{id}", produces =  "application/json", consumes = "application/json")
-    public JSONObject getById(@PathVariable("id") String id)
+    public Users getById(@PathVariable("id") String id)
     {
         Users user = this.userRepository.findByMongoid(id);
-        String mongoid = user.getId();
-        String username = user.getUserName();
-        String password = user.getPasswordName();
+//        String mongoid = user.getId();
+//        String username = user.getUserName();
+//        String password = user.getPasswordName();
+//
+//        ArrayList<Games> games = user.getAllGamesFromUser();
+//        JSONObject tmp = new JSONObject();
+//
+//        tmp.put("id", mongoid);
+//        tmp.put("username",username);
+//        tmp.put("password", password);
+//        tmp.put("games", games);
 
-        ArrayList<Games> games = user.getAllGamesFromUser();
-        JSONObject tmp = new JSONObject();
-
-        tmp.put("id", mongoid);
-        tmp.put("username",username);
-        tmp.put("password", password);
-        tmp.put("games", games);
-
-        return tmp;
+        return user;
     }
 
     //Returns a user back to client using the name
     @GetMapping(path = "/Users/{username}", produces =  "application/json", consumes = "application/json")
-    public JSONObject getByUsername(@PathVariable("username") String userName)
+    public Users getByUsername(@PathVariable("username") String userName)
     {
         Users user = this.userRepository.findByUserName(userName);
-        String mongoid = user.getId();
-        String username = user.getUserName();
-        String password = user.getPasswordName();
+//        String mongoid = user.getId();
+//        String username = user.getUserName();
+//        String password = user.getPasswordName();
+//
+//        ArrayList<Games> games = user.getAllGamesFromUser();
+//        JSONObject tmp = new JSONObject();
+//        tmp.put("id", mongoid);
+//        tmp.put("username",username);
+//        tmp.put("password", password);
+//        tmp.put("games", games);
 
-        ArrayList<Games> games = user.getAllGamesFromUser();
-        JSONObject tmp = new JSONObject();
-        tmp.put("id", mongoid);
-        tmp.put("username",username);
-        tmp.put("password", password);
-        tmp.put("games", games);
-
-        return tmp;
+        return user;
     }
 }
