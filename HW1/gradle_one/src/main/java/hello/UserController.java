@@ -107,12 +107,13 @@ public class UserController{
 
 
     @PutMapping(value = "/InsertUser", consumes = "application/json")
-    public void insert(@RequestBody JSONArray user){
+    public void insert(@RequestBody Users user){
         this.userRepository.insert(user);
     }
 
     @PostMapping(path = "/AddUser", consumes =  "application/json")
     public void update(@RequestBody Users user) {
+
         this.userRepository.save(user);
 
     }
