@@ -3,15 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="b452bf4f-5300-4dce-b7d3-e87341121701" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HW1/gradle_one/build/classes/java/main/hello/Games.class" beforeDir="false" afterPath="$PROJECT_DIR$/HW1/gradle_one/build/classes/java/main/hello/Games.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HW1/gradle_one/build/classes/java/main/hello/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/HW1/gradle_one/build/classes/java/main/hello/UserController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/HW1/gradle_one/build/libs/gs-accessing-data-mongodb-0.1.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/HW1/gradle_one/build/libs/gs-accessing-data-mongodb-0.1.0.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HW1/gradle_one/build/resources/main/static/css/StyleSheet.css" beforeDir="false" afterPath="$PROJECT_DIR$/HW1/gradle_one/build/resources/main/static/css/StyleSheet.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/HW1/gradle_one/build/resources/main/static/css/jotto.css" beforeDir="false" afterPath="$PROJECT_DIR$/HW1/gradle_one/build/resources/main/static/css/jotto.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HW1/gradle_one/build/resources/main/static/js/database.js" beforeDir="false" afterPath="$PROJECT_DIR$/HW1/gradle_one/build/resources/main/static/js/database.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HW1/gradle_one/build/resources/main/static/js/jotto.js" beforeDir="false" afterPath="$PROJECT_DIR$/HW1/gradle_one/build/resources/main/static/js/jotto.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/HW1/gradle_one/build/resources/main/templates/test_jotto.html" beforeDir="false" afterPath="$PROJECT_DIR$/HW1/gradle_one/build/resources/main/templates/test_jotto.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HW1/gradle_one/src/main/resources/static/css/StyleSheet.css" beforeDir="false" afterPath="$PROJECT_DIR$/HW1/gradle_one/src/main/resources/static/css/StyleSheet.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/HW1/gradle_one/src/main/resources/static/css/jotto.css" beforeDir="false" afterPath="$PROJECT_DIR$/HW1/gradle_one/src/main/resources/static/css/jotto.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/HW1/gradle_one/src/main/resources/templates/test_jotto.html" beforeDir="false" afterPath="$PROJECT_DIR$/HW1/gradle_one/src/main/resources/templates/test_jotto.html" afterDir="false" />
     </list>
@@ -53,8 +47,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/HW1/gradle_one/src/main/resources/templates/test_jotto.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="71">
-              <caret line="25" column="16" selection-start-line="25" selection-start-column="16" selection-end-line="25" selection-end-column="16" />
+            <state relative-caret-position="394">
+              <caret line="42" column="32" selection-start-line="42" selection-start-column="32" selection-end-line="42" selection-end-column="32" />
               <folding>
                 <element signature="n#style#0;n#tr#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#td#0;n#tr#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -66,20 +60,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/HW1/gradle_one/src/main/resources/static/css/StyleSheet.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2474">
-              <caret line="20" column="28" selection-start-line="20" selection-start-column="28" selection-end-line="20" selection-end-column="28" />
+            <state relative-caret-position="531">
+              <caret line="290" column="30" selection-start-line="290" selection-start-column="30" selection-end-line="290" selection-end-column="30" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/HW1/gradle_one/src/main/resources/static/css/jotto.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="648">
-              <caret line="73" column="1" selection-start-line="73" selection-start-column="1" selection-end-line="73" selection-end-column="1" />
+            <state relative-caret-position="374">
+              <caret line="46" column="45" selection-start-line="46" selection-start-column="45" selection-end-line="46" selection-end-column="45" />
             </state>
           </provider>
         </entry>
@@ -99,6 +93,8 @@
       <find>wordsRight</find>
       <find>left</find>
       <find>wordsLef</find>
+      <find>begin</find>
+      <find>#008db5</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -121,9 +117,9 @@
         <option value="$PROJECT_DIR$/HW1/gradle_one/src/main/resources/templates/home.html" />
         <option value="$PROJECT_DIR$/HW1/gradle_one/src/main/resources/templates/hello.html" />
         <option value="$PROJECT_DIR$/HW1/gradle_one/src/main/resources/templates/login.html" />
-        <option value="$PROJECT_DIR$/HW1/gradle_one/src/main/resources/static/css/jotto.css" />
-        <option value="$PROJECT_DIR$/HW1/gradle_one/src/main/resources/templates/test_jotto.html" />
         <option value="$PROJECT_DIR$/HW1/gradle_one/src/main/resources/static/css/StyleSheet.css" />
+        <option value="$PROJECT_DIR$/HW1/gradle_one/src/main/resources/templates/test_jotto.html" />
+        <option value="$PROJECT_DIR$/HW1/gradle_one/src/main/resources/static/css/jotto.css" />
       </list>
     </option>
   </component>
@@ -137,7 +133,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -215,7 +211,7 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -265,7 +261,7 @@
     <frame x="-7" y="-7" width="1294" height="934" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19124797" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19448946" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -431,13 +427,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/HW1/gradle_one/src/main/resources/static/css/jotto.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="648">
-          <caret line="73" column="1" selection-start-line="73" selection-start-column="1" selection-end-line="73" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/HW1/gradle_one/src/main/resources/templates/login.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
@@ -447,8 +436,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/HW1/gradle_one/src/main/resources/templates/test_jotto.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="71">
-          <caret line="25" column="16" selection-start-line="25" selection-start-column="16" selection-end-line="25" selection-end-column="16" />
+        <state relative-caret-position="394">
+          <caret line="42" column="32" selection-start-line="42" selection-start-column="32" selection-end-line="42" selection-end-column="32" />
           <folding>
             <element signature="n#style#0;n#tr#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#td#0;n#tr#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -461,8 +450,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/HW1/gradle_one/src/main/resources/static/css/StyleSheet.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2474">
-          <caret line="20" column="28" selection-start-line="20" selection-start-column="28" selection-end-line="20" selection-end-column="28" />
+        <state relative-caret-position="531">
+          <caret line="290" column="30" selection-start-line="290" selection-start-column="30" selection-end-line="290" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/HW1/gradle_one/src/main/resources/static/css/jotto.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="46" column="45" selection-start-line="46" selection-start-column="45" selection-end-line="46" selection-end-column="45" />
         </state>
       </provider>
     </entry>
