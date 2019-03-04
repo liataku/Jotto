@@ -19,8 +19,8 @@
 			<h2>CPU's Guesses</h2>
 		</td>
 	</tr>
-	<tr valign="top" style="height=90%">
-		<td style="width:25%">
+	<tr valign="top">
+		<td style="width:25%;">
 			<div class="wordsLeft">
 				<div id="player_list" class="guess_list">
 				</div>
@@ -35,14 +35,28 @@
 							<input id="word_guess" maxlength="5" placeholder="Enter">
 							<p id="notice_ingame"></p>
 						</div>
-						<div id="overlay"></div>
+						<div id="overlay">
+						</div>
 						<div id="overlay_prompt">
 							<h4 id="prompt_start">To begin the game, enter a 5-letter word.</h4>
+							<br>
+							<br>
+							<br>
+							<br>
 							<input id = "word_start" maxlength="5" placeholder="Enter">
 							<p id="notice_start"></p>
-						</div>
+							</div>
 						<div id="overlay_notice">
 							<h4 id="notice_text">Loading...</h4>
+						</div>
+						<div id="overlay_quit">
+							Here's where the quit and play again buttons are!
+							<div id = "quit">
+								<button type="button">Quit!</button>
+							</div>
+							<div id = "play_again">
+								<button onclick="restart()" type="button">Play Again!</button>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -55,17 +69,13 @@
 				</div>
 			</div>
 			</div>
-
-
 		</td>
-<td style="width:25%">
+		<td style="width:25%;">
 			<div class="wordsRight">
 				<div id="cpu_list" class="guess_list">
 				</div>
 			</div>
-</td>
-
-
+		</td>
 	</tr>
 </table>
 </body>

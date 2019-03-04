@@ -1,27 +1,59 @@
 
 
 // Returns a list of all a users guesses
-function getGuesses()
+function getAllUsersGuesses(id)
 {
+    $.get("http://localhost:8080/users/AllUserGuesses/" + id, function(data){
 
-}
-
-function getAllUsers(){
-
-    var userList = $.get("http://localhost:8080/users/AllUsers", function(data)
-    {
-        var password = data["password"]
-        alert(password);
+        var gameOjb = JSON.parse(data)
+        alert(data);
     })
-
-
 }
 
-function getUser(){}
+function getAllGuesses()
+{
+    $.get("http://localhost:8080/users/AllGuesses", function(data){
 
-function getAllUserGames(){}
+        var gameOjb = JSON.parse(data)
+        alert(data);
+    })
+}
+
+function getUserByUsername(username){
+
+    $.get("http://localhost:8080/users/Users/" + username, function(data){
+
+        var gameOjb = JSON.parse(data)
+        alert(data);
+    })
+}
+
+
+function getUserById(id){
+
+    $.get("http://localhost:8080/users/GetUser/" + id, function(data){
+
+        var gameOjb = JSON.parse(data)
+        alert(data);
+    })
+}
+
+//Gets all of a users games
+function getAllUserGames(id){
+
+    $.get("http://localhost:8080/users/AllUserGames/" + id, function(data){
+
+        var gameOjb = JSON.parse(data)
+        alert(data);
+    })
+}
 
 function getAllGames(){
 
-    $.get("http://localhost:8080/")
+    $.get("http://localhost:8080/users/AllGames", function(data){
+
+        var gameOjb = JSON.parse(data)
+        alert(data);
+    })
+
 }

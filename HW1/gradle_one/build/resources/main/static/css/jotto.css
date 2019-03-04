@@ -1,3 +1,10 @@
+/*Divs for quitting and playing again*/
+.quit{
+    align:center;
+}
+.play_again{
+    align:center;
+}
 #overlay {
 	position: fixed;
 	display: block;
@@ -34,16 +41,52 @@
 	position: absolute;
 	display: block;
 
-	width: 300px;
-	height: 300px;
+	width: 50%;
+	height: 50%;
 
-	top: 50%;
+	top: 45%;
 	left: 50%;
 	transform: translate(-50%,-50%);
 	-ms-transform: translate(-50%,-50%);
+   border: 2px solid transparent;
+   border-radius: 25px;
+	      background-image:
+                      linear-gradient(to top,
+                      #4cc8c4,
+                      #30bcc2,
+                      #00afbf,
+                      #009ebb,
+                      #008db5,
+                      #007cac,
+                      #006ba1);
+    z-index:3;
 
-	background-color: rgba(255, 255, 255, 1.0);
-	z-index: 3;
+	text-align: center;
+}
+
+#overlay_quit {
+	position: absolute;
+	display: block;
+
+	width: 30%;
+	height: 30%;
+
+	top: 45%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	-ms-transform: translate(-50%,-50%);
+   border: 2px solid transparent;
+   border-radius: 25px;
+	      background-image:
+                      linear-gradient(to top,
+                      #4cc8c4,
+                      #30bcc2,
+                      #00afbf,
+                      #009ebb,
+                      #008db5,
+                      #007cac,
+                      #006ba1);
+    z-index:3;
 
 	text-align: center;
 }
@@ -71,6 +114,4 @@
 #cpu_list {
 }
 .guess_list {
-	display: inline;
-	overflow-y: scroll;
 }
