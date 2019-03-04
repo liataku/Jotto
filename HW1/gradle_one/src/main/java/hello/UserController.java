@@ -107,21 +107,27 @@ public class UserController{
 
     //Returns a list of all of a single users guesses
     @GetMapping(path = "/AllUserGuesses/{id}")
-    public JSONArray getAllUserGuesses(@PathVariable(name = "id") String id)
+    public ArrayList<Guesses> getAllUserGuesses(@PathVariable(name = "id") String id)
     {
         Users user = userRepository.findByMongoid(id);
         ArrayList<Games> gamesList = user.getAllGamesFromUser();
-        JSONArray gl = new JSONArray();
+        ArrayList<Guesses> gl = new ArrayList<Guesses>();
 
-        for(int i = 0; i < gamesList.size(); i++)
-        {
-            ArrayList<Guesses> guessesList = gamesList.get(i).getGuesses();
-
-            for(int j = 0; j < guessesList.size(); j++)
+        try{
+            for(int i = 0; i < gamesList.size(); i++)
             {
-                gl.add(guessesList.get(j));
+                ArrayList<Guesses> guessesList = gamesList.get(i).getGuesses();
+
+                for(int j = 0; j < guessesList.size(); j++)
+                {
+                    gl.add(guessesList.get(j));
+                }
             }
+        }catch(Exception e){
+
+            System.out.println("Another execeotoj");
         }
+
 
         return gl;
     }
