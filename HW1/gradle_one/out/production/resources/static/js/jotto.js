@@ -94,14 +94,18 @@ const NOTICES = [
 					"Please use a word without any repeating letters.",
 					"Please enter an actual English word.",
 					"Loading...",
-					"Congratulations! You've lost!",
-					"Congratulations! You've won!"
 				];
+
+const START_GAME = "To begin the game, enter a 5-letter word.";
+const NOTICE_WIN = "Congratulations! You've won!";
+const NOTICE_LOSS = "Congratulations! You've lost!";
 
 /* HTML ID tags for game page elements. */
 const OVERLAY = "overlay";
 const OVERLAY_PROMPT = "overlay_prompt";
 const OVERLAY_NOTICE = "overlay_notice";
+const OVERLAY_QUIT = "overlay_quit";
+const NOTICE_QUIT = "notice_quit";
 const NOTICE_TEXT = "notice_text";
 const PROMPT_START = "prompt_start";
 const WORD_START = "word_start";
@@ -231,6 +235,30 @@ function start() {
 }
 
 /*
+ * Called if player chooses to play another game.
+ *
+ * Resets all game display elements to prepare for a new game of Jotto.
+ */
+function restart() {
+    if (!SAVING) {
+        /* Reset game display. */
+        document.getElementById(PLAYER_LIST).innerHTML = "";
+        document.getElementById(CPU_LIST).innerHTML = "";
+
+        /* Display opening overlay again to prompt the player for another word. */
+        document.getElementById(OVERLAY).style.display = "block";
+        document.getElementById(OVERLAY_PROMPT).style.display = "block";
+        document.getElementById(PROMPT_START).innerHTML = START_GAME;
+        document.getElementById(WORD_START).style.display = "";
+        document.getElementById(NOTICE_START).style.display = "";
+        document.getElementById(NOTICE_START).innerHTML = "";
+
+        /* Hide game over overlay. */
+        document.getElementById(OVERLAY_QUIT).style.display = "none";
+    }
+}
+
+/*
  * Called after validating player's word, at start of every game.
  *
  * Sets up or resets any variables needed to run Jotto.
@@ -302,10 +330,10 @@ function makeGuess() {
 			document.getElementById(NOTICE_INGAME).innerHTML = notice;
 		} else {
 			/* Hide HTML elements used to take in player's guess. */
-			document.getElementById(WORD_GUESS).style.display = "none";
+			document.getElementById(WORD_GUESS).value = "";
 			document.getElementById(NOTICE_INGAME).style.display = "none";
 			document.getElementById(NOTICE_INGAME).innerHTML = "";
-			
+
 			/* Check characters of player's guess and mark if correct. */
 			var i = 0;
 			var ch, chars_correct = 0;
@@ -317,7 +345,7 @@ function makeGuess() {
 			}
 			console.log(player_correct);
 			console.log("chars_correct: " + chars_correct);
-			
+
 			/* Create JSON object to store record of player's guess and its results. */
 			guessObj = guess_template;
 			guessObj.type = GUESS_TYPE_PLAYER;
@@ -326,21 +354,24 @@ function makeGuess() {
 			guessObj.correct_array = player_correct;
 
 			console.log(guessObj);
-			
+
 			/* Add record of guess to current game record. */
 			recordObj.guesses.push(guessObj);
-			
+
 			/* If player has guessed all letters correctly, check if they've won the game. */
 			if (chars_correct == word_length) {
-				if (player_guess === cpu_word) {
-					/* Inform player that they have won the game, then save game record. */
-					document.getElementById(OVERLAY).style.display = "block";
-					document.getElementById(OVERLAY_PROMPT).innerHTML = "You won!";
-					document.getElementById(OVERLAY_PROMPT).style.display = "block";
-					
+			    var won = true;
+			    for (i = 0; i < word_length; i++) {
+			        if (player_guess.charAt(i) != cpu_word.charAt(i)) {
+			            won = false;
+			        }
+			    }
+				if (won) {
+				    console.log("Player's guess is correct!");
 					PLAYING = false;
 					SAVING = true;
-					saveGame();
+					saveGame(true);
+					return;
 				}
 			}
 
@@ -357,9 +388,11 @@ function makeGuess() {
 			document.getElementById(PLAYER_LIST).innerHTML += str_guess;
 
 			/* Generate a guess for the computer using remaining possible characters. */
-			ch = possibleChars[Math.floor(Math.random() * possibleChars.length)];
-			var words = WORDS[ch];
-			cpu_guess = words[Math.floor(Math.random() * words.length)].trim();
+            var words, word;
+            ch = possibleChars[Math.floor(Math.random() * possibleChars.length)];
+            words = WORDS[ch];
+            word = words[Math.floor(Math.random() * words.length)];
+			cpu_guess = word;
 
 			console.log("Player's word: " + player_word);
             console.log(words);
@@ -389,28 +422,31 @@ function makeGuess() {
 			console.log(cpu_correct);
 			console.log("chars_correct: " + chars_correct);
 			console.log(possibleChars);
-			
+
 			/* Save CPU's guess and results in a JSON object. */
 			guessObj = guess_template;
 			guessObj.type = GUESS_TYPE_CPU;
 			guessObj.guess = cpu_guess;
 			guessObj.correct_int = chars_correct;
 			guessObj.correct_array = cpu_correct;
-			
+
 			/* Add record of CPU guess into game record. */
 			recordObj.guesses.push(guessObj);
-			
+
 			/* If CPU has guessed all 5 letters correctly, check if they have won the game. */
 			if (chars_correct == word_length) {
-				if (cpu_guess === player_word) {
-					/* If CPU has successfully guessed player's word, inform player of their loss. */
-					document.getElementById(OVERLAY).style.display = "block";
-					document.getElementById(OVERLAY_PROMPT).innerHTML = "You lost!";
-					document.getElementById(OVERLAY_PROMPT).style.display = "block";
-					
+				var lost = true;
+				for (i = 0; i < word_length; i++) {
+				    if (cpu_guess.charAt(i) != player_word.charAt(i)) {
+				        lost = false;
+				    }
+				}
+				if (lost) {
+				    console.log("CPU's guess is correct!");
 					PLAYING = false;
 					SAVING = true;
-					saveGame();
+					saveGame(false);
+					return;
 				}
 			}
             str_guess = "<p>";
@@ -437,9 +473,10 @@ function makeGuess() {
  * Called after either the player or the CPU wins a game of Jotto.
  *
  */
-function saveGame() {
+function saveGame(player) {
 	/* Only continue if no games in progress. */
 	if (SAVING && !PLAYING) {
+	    console.log("Calling saveGame()...");
 		/* Make call to MongoDB database to save records of current game. */
 		// TODO
 		// Communicate with MongoDB to save records
@@ -447,5 +484,15 @@ function saveGame() {
 		/* When done, tell the program that saving is complete. */
 		// NOTE: This should only be done in a callback when DB query is finished.
 		SAVING = false;
+
+		if (player) {
+            /* Inform player that they have won the game, then save game record. */
+            document.getElementById(NOTICE_QUIT).innerHTML = NOTICE_WIN;
+		} else {
+            /* If CPU has successfully guessed player's word, inform player of their loss. */
+            document.getElementById(NOTICE_QUIT).innerHTML = NOTICE_LOSS;
+		}
+        document.getElementById(OVERLAY_QUIT).style.display = "block";
+        document.getElementById(NOTICE_QUIT).style.display = "block";
 	}
 }

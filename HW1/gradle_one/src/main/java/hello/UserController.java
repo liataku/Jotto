@@ -31,11 +31,13 @@ public class UserController{
     }
     //Returns all games ever played
     @GetMapping(path = "/AllGames")
-    public JSONArray getAllGames()
+    public ArrayList<Games> getAllGames()
     {
+
+        System.out.println("Inside of all games \n");
         List<Users> users = this.userRepository.findAll();
 
-        JSONArray gameArray = new JSONArray();
+        ArrayList<Games> gameArray = new ArrayList<Games>();
 
         for(int i = 0; i < users.size(); i++)
         {
