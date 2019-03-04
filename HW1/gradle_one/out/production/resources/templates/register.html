@@ -19,14 +19,14 @@
         </div>
         </br>
         </br>
-        <form th:action="@{/login}" method="post">
-            <div style="line-height:10%" align="center"><h2><label> User Name : <input type="text" name="username"/> </label></h2></div>
+        <form th:action="@{/users/AddUser}" method="post">
+            <div style="line-height:10%" align="center"><h2><label> User Name : <input type="text" name="userName"/> </label></h2></div>
             <div style="line-height:10%" align="center"><h2><label> Password: <input type="password" name="password"/> </label></h2></div>
             </br>
             </br>
-            <div style="line-height:10%" align="center"><input type="submit" value="Sign In"/></div>
+            <div style="line-height:10%" align="center"><input type="submit" value="Register"/></div>
         </form>
-        <button th:onclick="'changeWindow(\'/register\');'">Don't have an account? Click here to register.</button>
+        <button th:onclick="'changeWindow(\'/login\');'">Back to login page</button>
     </div>
 </div>
 </body>

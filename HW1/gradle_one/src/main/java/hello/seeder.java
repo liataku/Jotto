@@ -39,5 +39,7 @@ public class seeder implements CommandLineRunner {
         this.userRepository.save(guy);
         this.userRepository.save(michelle);
         this.userRepository.save(sofitel);
+
+        System.out.println(userRepository.findByUserName("Sofitel").getUserName());
     }
 }
