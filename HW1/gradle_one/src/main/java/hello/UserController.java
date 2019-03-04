@@ -21,27 +21,16 @@ public class UserController{
     }
 
     //Returns a list of all Users
-    @GetMapping(path = "/AllUsers", produces =  "application/json", consumes = "application/json")
+    @GetMapping(path = "/GetAllUsers")
     public List<Users> getAllUsers()
     {
+        System.out.println("This is the magic test! \n");
         List<Users> users = this.userRepository.findAll();
-//        JSONObject tmp = new JSONObject();
-//        try {
-//            for(int i = 0; i < users.size(); i++)
-//            {
-//                tmp.put("id", users.get(i).getId()); //some public getters inside GraphUser?
-//                tmp.put("username", users.get(i).getUserName());
-//                tmp.put("password", users.get(i).getPasswordName());
-//                tmp.put("games" , users.get(i).getAllGamesFromUser());
-//            }
-//        } catch(Exception e)
-//        {
-//            System.out.println("User not added \n");
-//        }
+
         return users;
     }
     //Returns all games ever played
-    @GetMapping(path = "/AllGames", produces =  "application/json", consumes = "application/json")
+    @GetMapping(path = "/AllGames")
     public JSONArray getAllGames()
     {
         List<Users> users = this.userRepository.findAll();
@@ -62,7 +51,7 @@ public class UserController{
 
     //Returns all games a user has played
 
-    @GetMapping(path = "/AllUserGames/{id}", produces =  "application/json", consumes = "application/json")
+    @GetMapping(path = "/AllUserGames/{id}")
     public ArrayList<Games> getAllUserGames(@PathVariable(name = "id") String id)
     {
         Users user = userRepository.findByMongoid(id);
@@ -73,7 +62,7 @@ public class UserController{
     }
 
     //Returns all guesses that have ever been made ever
-    @GetMapping(path = "/AllGuesses", produces =  "application/json", consumes = "application/json")
+    @GetMapping(path = "/AllGuesses")
     public JSONArray getAllGuesses()
     {
         ArrayList<Games> gameList = getAllGames();
@@ -97,7 +86,7 @@ public class UserController{
     }
 
     //Returns a list of all of a single users guesses
-    @GetMapping(path = "/AllUserGuesses/{id}", produces =  "application/json", consumes = "application/json")
+    @GetMapping(path = "/AllUserGuesses/{id}")
     public JSONArray getAllUserGuesses(@PathVariable(name = "id") String id)
     {
         Users user = userRepository.findByMongoid(id);
@@ -118,13 +107,13 @@ public class UserController{
     }
 
 
-    @PutMapping(value = "/AddUser", consumes = "application/json")
+    @PutMapping(value = "/AddUser")
     public void insert(@RequestBody Users user){
         delete(user.getId());
         this.userRepository.insert(user);
     }
 
-    @PostMapping(path = "/UpdateUser", consumes =  "application/json")
+    @PostMapping(path = "/UpdateUser")
     public void update(@RequestBody Users user) {
         this.userRepository.save(user);
 
@@ -143,7 +132,7 @@ public class UserController{
     }
 
     //Returns a user object to client
-    @GetMapping(path = "GetUser/{id}", produces =  "application/json", consumes = "application/json")
+    @GetMapping(path = "GetUser/{id}")
     public Users getById(@PathVariable("id") String id)
     {
         Users user = this.userRepository.findByMongoid(id);
@@ -163,7 +152,7 @@ public class UserController{
     }
 
     //Returns a user back to client using the name
-    @GetMapping(path = "/Users/{username}", produces =  "application/json", consumes = "application/json")
+    @GetMapping(path = "/Users/{username}")
     public Users getByUsername(@PathVariable("username") String userName)
     {
         Users user = this.userRepository.findByUserName(userName);
@@ -180,4 +169,6 @@ public class UserController{
 
         return user;
     }
+
+
 }
