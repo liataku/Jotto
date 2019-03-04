@@ -15,9 +15,9 @@ public class Users{
 
     private ArrayList<Games> games;
 
-    public Users(String mongoid, String userName, String password)
+    public Users(String userName, String password)
     {
-        this.mongoid = mongoid;
+
         this.userName = userName;
         this.password = password;
         games = new ArrayList<Games>();
