@@ -65,25 +65,43 @@ public class UserController{
 
     //Returns all guesses that have ever been made ever
     @GetMapping(path = "/AllGuesses")
-    public JSONArray getAllGuesses()
+    public ArrayList<Guesses> getAllGuesses()
     {
-        ArrayList<Games> gameList = getAllGames();
-
-        JSONArray gl = new JSONArray();
 
 
-        for(int i = 0; i < gameList.size(); i++)
+        System.out.println("Before Guess loop \n");
+
+        System.out.println("Inside of all guesses \n");
+
+        List<Users> users = this.userRepository.findAll();
+
+        ArrayList<Games> gameArray = new ArrayList<Games>();
+
+        for(int i = 0; i < users.size(); i++)
         {
-            ArrayList<Guesses> guessList = new ArrayList<Guesses>();
-            guessList = gameList.get(i).getGuesses();
-
-            for(int j = 0; j < guessList.size(); j++)
+            for(int j = 0; j < users.get(i).getAllGamesFromUser().size(); j++)
             {
-                gl.add(guessList.get(j));
+                Games aGame = users.get(i).getGame(j+1);
+                gameArray.add(aGame);
+            }
+        }
+        ArrayList<Guesses> gl = new ArrayList<Guesses>();
+
+        try{
+            for(int i = 0; i < gameArray.size(); i++)
+            {
+                for(int j = 0; j < gameArray.get(i).getGuesses().size(); j++)
+                {
+                    gl.add(gameArray.get(i).getGuesses().get(j));
+                }
+
             }
 
+        }catch(Exception e){
+            System.out.println("Exception");
         }
 
+        System.out.println("After Guess loop \n");
         return gl;
     }
 
@@ -109,9 +127,10 @@ public class UserController{
     }
 
 
-    @PutMapping(value = "/AddUser")
+    @PostMapping(value = "/AddUser")
     public void insert(@RequestBody Users user){
-        delete(user.getId());
+        //delete(user.getId());
+        System.out.println("Inside of add users \n");
         this.userRepository.insert(user);
     }
 

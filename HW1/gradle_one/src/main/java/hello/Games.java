@@ -56,6 +56,11 @@ public class Games{
         return gameNum;
     }
 
+    public void setGuess(Guesses guess)
+    {
+        this.guesses.add(guess);
+    }
+
     public void AddGame() {
         gameNum++;
     }

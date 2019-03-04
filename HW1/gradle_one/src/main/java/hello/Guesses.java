@@ -13,9 +13,9 @@ public class Guesses{
 
     ArrayList<String> correct_Array;
 
-    public Guesses(String id, String guess, int correct_num, String type)
+    public Guesses(String guess, int correct_num, String type)
     {
-        this.id = id;
+
         this.guess = guess;
         this.correct_num = correct_num;
         this.type = type;
