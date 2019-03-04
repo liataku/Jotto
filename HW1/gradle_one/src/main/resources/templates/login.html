@@ -6,6 +6,8 @@
     <link rel="stylesheet" type="text/css" href="/css/StyleSheet.css" th:href="@{/css/StyleSheet.css}" >
     <link href="https://fonts.googleapis.com/css?family=Poppins:500" rel="stylesheet">    <title>Sign In </title>
 </head>
+<script src="/js/jquery-3.3.1.min.js" th:src="@{/js/jquery-3.3.1.min.js}"></script>
+<script src="/js/buttonhelper.js" th:src="@{/js/buttonhelper.js}"></script>
 <body>
 <div class="fade-in">
     <div class = "container">
@@ -24,6 +26,7 @@
             </br>
             <div style="line-height:10%" align="center"><input type="submit" value="Sign In"/></div>
         </form>
+        <button th:onclick="'changeWindow(\'/register\');'">Don't have an account? Click here to register.</button>
     </div>
 </div>
 </body>
