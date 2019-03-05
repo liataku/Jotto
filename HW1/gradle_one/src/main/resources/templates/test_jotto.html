@@ -3,8 +3,10 @@
 <head>
 	<link rel="stylesheet" type="text/css" href="/css/jotto.css" th:href="@{/css/jotto.css}" >
 	<link rel="stylesheet" type="text/css" href="/css/StyleSheet.css" th:href="@{/css/StyleSheet.css}" >
-	<link href="https://fonts.googleapis.com/css?family=Poppins:500" rel="stylesheet">	<title>Jotto</title>
+	<link href="https://fonts.googleapis.com/css?family=Poppins:500" rel="stylesheet">
+	<title>Jotto</title>
 </head>
+<p id="user" style="display:none;">[[${#httpServletRequest.remoteUser}]]</p>
 <script src="/js/jquery-3.3.1.min.js" th:src="@{/js/jquery-3.3.1.min.js}"></script>
 <script src="/js/jotto.js" th:src="@{/js/jotto.js}"></script>
 <body>
