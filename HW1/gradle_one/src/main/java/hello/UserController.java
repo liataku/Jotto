@@ -154,7 +154,8 @@ public class UserController{
 
     @PostMapping(path = "/UpdateUser")
     public void update(@ModelAttribute Users user) {
-       
+        String id = user.getId();
+        this.userRepository.deleteById(id);
         this.userRepository.save(user);
 
     }
