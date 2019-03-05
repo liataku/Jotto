@@ -1,0 +1,86 @@
+/* @author Peter Ly
+* Gradle build config file for application/language management.
+*/
+buildscript {
+    repositories {
+        mavenLocal()
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:2.0.5.RELEASE")
+    }
+}
+
+//importing java, Intellij IDEA settings tracker, and spring framework
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+
+//Not needed but included for reference - Spring will handle declaring a main file for us.
+//apply plugin: 'application'
+//mainClassName = 'hello.HelloWorld'
+
+group 'gradle_one'
+version '1.0-SNAPSHOT'
+
+// tag::dependencies[]
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+dependencies {
+    /*
+    compile 'javax.servlet:javax.servlet-api:3.1.0'
+    compile("org.springframework.boot:spring-boot-starter-web")
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    compile "joda-time:joda-time:2.2"
+    */
+    compile("org.springframework.boot:spring-boot-starter-thymeleaf")
+    compile("org.springframework.boot:spring-boot-starter-web")
+    compile("org.springframework.boot:spring-boot-starter-security")
+    compile('org.springframework.boot:spring-boot-starter-tomcat')
+    compile("org.springframework.boot:spring-boot-starter-data-mongodb")
+    compile ('com.googlecode.json-simple:json-simple:1.1.1')
+    compile ('org.json:json:20171018')
+    testCompile("junit:junit")
+    testCompile("org.springframework.boot:spring-boot-starter-test")
+    testCompile("org.springframework.security:spring-security-test")
+}
+// end::dependencies[]
+
+// tag::repositories[]
+repositories {
+    mavenCentral()
+}
+// end::repositories[]
+
+// tag::jar[]
+
+bootJar {
+    //baseName = 'gs-securing-web'
+    baseName = 'gs-accessing-data-mongodb'
+    version =  '0.1.0'
+}
+/*
+jar {
+    manifest {
+        attributes 'Main-Class': 'your_package_name.YOUR_MAIN_CLASS'
+    }
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+}
+*/
+// end::jar[]
+
+
+//generates a wrapper so that you don't have to make one
+//on the command line yourself
+
+// tag::wrapper[]
+wrapper {
+    gradleVersion = '5.2.1'
+}
+// end::wrapper[]
+
+
+assemble{}
