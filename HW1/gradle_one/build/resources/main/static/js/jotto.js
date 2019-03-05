@@ -87,6 +87,8 @@ const NOTICE_WIN = "Congratulations! You've won!";
 const NOTICE_LOSS = "Congratulations! You've lost!";
 
 /* HTML ID tags for game page elements. */
+const USER = "user";
+
 const OVERLAY = "overlay";
 const OVERLAY_PROMPT = "overlay_prompt";
 const OVERLAY_NOTICE = "overlay_notice";
@@ -146,6 +148,8 @@ function doneLoading() {
     }
     document.getElementById(SHOW_STATS_BUTTON).onclick = showStats;
     document.getElementById(EXIT_STATS_BUTTON).onclick = exitStats;
+
+    console.log(document.getElementById(USER).innerHTML);
 }
 
 function showStats() {
@@ -507,8 +511,6 @@ function saveGame(player) {
 function getAllUsersGuesses(id)
 {
     $.get("http://localhost:8080/users/AllUserGuesses/" + id, function(data){
-
-        var gameOjb = JSON.parse(data);
         console.log(data);
     })
 }
@@ -516,8 +518,6 @@ function getAllUsersGuesses(id)
 function getAllGuesses()
 {
     $.get("http://localhost:8080/users/AllGuesses", function(data){
-
-        var gameOjb = JSON.parse(data);
         console.log(data);
     })
 }
@@ -525,8 +525,6 @@ function getAllGuesses()
 function getUserByUsername(username){
 
     $.get("http://localhost:8080/users/Users/" + username, function(data){
-
-        var gameOjb = JSON.parse(data);
         console.log(data);
     })
 }
@@ -535,8 +533,6 @@ function getUserByUsername(username){
 function getUserById(id){
 
     $.get("http://localhost:8080/users/GetUser/" + id, function(data){
-
-        var gameOjb = JSON.parse(data);
         console.log(data);
     })
 }
@@ -545,8 +541,6 @@ function getUserById(id){
 function getAllUserGames(id){
 
     $.get("http://localhost:8080/users/AllUserGames/" + id, function(data){
-
-        var gameOjb = JSON.parse(data);
         console.log(data);
     })
 }
