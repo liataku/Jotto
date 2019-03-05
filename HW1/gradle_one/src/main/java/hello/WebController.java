@@ -47,6 +47,7 @@ public class WebController
         return mv;
 
     }
+    
     @GetMapping(path = "/hello")
     public ModelAndView getHelloPage()
     {
