@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.util.MimeType;
 import org.springframework.http.MediaType;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.view.RedirectView;
 
 import javax.print.attribute.standard.Media;
 import java.util.ArrayList;
@@ -146,6 +147,7 @@ public class UserController{
         System.out.println(user.getUserName());
 
         ModelAndView mv = new ModelAndView("home");
+        mv.setView(new RedirectView("/home?registered", true));
 
         return mv;
     }
