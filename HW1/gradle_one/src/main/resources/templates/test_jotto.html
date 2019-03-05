@@ -3,8 +3,10 @@
 <head>
 	<link rel="stylesheet" type="text/css" href="/css/jotto.css" th:href="@{/css/jotto.css}" >
 	<link rel="stylesheet" type="text/css" href="/css/StyleSheet.css" th:href="@{/css/StyleSheet.css}" >
-	<link href="https://fonts.googleapis.com/css?family=Poppins:500" rel="stylesheet">	<title>Jotto</title>
+	<link href="https://fonts.googleapis.com/css?family=Poppins:500" rel="stylesheet">
+	<title>Jotto</title>
 </head>
+<p id="user" style="display:none;">[[${#httpServletRequest.remoteUser}]]</p>
 <script src="/js/jquery-3.3.1.min.js" th:src="@{/js/jquery-3.3.1.min.js}"></script>
 <script src="/js/jotto.js" th:src="@{/js/jotto.js}"></script>
 <body>
@@ -114,6 +116,13 @@
 		<td align="center">
 			<div class = "open_stats">
 				<button id="show_stats_button" valign="top" type="button">View past games!</button>
+			</div>
+			<div style="line-height:10%" align="center">
+			<form th:action="@{/logout}" method="post" style="line-height:5%">
+				</br>
+				</br>
+				<input type="submit" value="Log Out"/>
+			</form>
 			</div>
 		</td>
 		<td></td>
