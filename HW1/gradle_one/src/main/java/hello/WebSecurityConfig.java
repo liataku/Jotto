@@ -21,7 +21,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/", "/home",
                         "/css/jotto.css", "/css/StyleSheet.css",
                         "/js/jquery-3.3.1.min.js","/users/AllGames", "/users/AllUserGames/", "/users/AllGuesses",
-                        "/users", "/users/AllUserGuesses/", "/users/AddUser", "/users/UpdateUser", "/users/Delete", "/users/GetUser/", "/users/", "/hello", "/js/buttonhelper.js", "/js/database.js", "/users/GetAllUsers", "/temporary",
+                        "/users", "/users/AllUserGuesses/", "/users/AddUser", "/users/UpdateUser", "/users/Delete", "/users/GetUser/", "/users/", "/hello", "/js/buttonhelper.js", "/users/GetAllUsers", "/temporary",
                         "/register").permitAll()
                 .anyRequest().authenticated()
                 .and()
