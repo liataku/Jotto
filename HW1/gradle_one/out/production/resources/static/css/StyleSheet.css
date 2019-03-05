@@ -130,7 +130,7 @@ a{
   content: "You pick a secret word of five letters.\A Words must appear in a dictionary & no proper nouns are allowed.\A The object of the game is to correctly guess the CPU's word first.\A On your turn, guess a five-letter word.\A Then CPU displays how many letters in that guess match a letter in its secret word.";
 }
 td{
-    padding:20px;
+    padding:10px;
 }
 table{
     table-layout: fixed;
@@ -138,6 +138,22 @@ table{
     height:100%;
     padding:10px;
     table-layout:fixed;
+}
+.pastGames{
+       font-family: 'Poppins', sans-serif;
+       color: white;
+       vertical-align:top;
+       align: center;
+       text-align: center;
+       font-size: 18px;
+       opacity:.85;
+   border: 2px solid transparent;
+   border-radius: 25px;
+         background: rgba(0,0,0,0.1);
+       	height: 70%;
+       	overflow-y: scroll;
+
+
 }
 .wordsRight{
        font-family: 'Poppins', sans-serif;
@@ -190,8 +206,9 @@ table{
    border: 2px solid transparent;
    border-radius: 25px;
    padding: 20px;
-   height:70%;
+   height:100%;
    background: rgba(0,0,0,0.1);
+
 }
 button{
    background-color: #008db5;

@@ -7,6 +7,7 @@
 </head>
 <script src="/js/jquery-3.3.1.min.js" th:src="@{/js/jquery-3.3.1.min.js}"></script>
 <script src="/js/jotto.js" th:src="@{/js/jotto.js}"></script>
+<script src="/js/database.js" th:src="@{/js/database.js}"></script>
 <body>
 <table>
 	<tr valign="bottom" style="height:10%">
@@ -19,7 +20,7 @@
 			<h2>CPU's Guesses</h2>
 		</td>
 	</tr>
-	<tr valign="top">
+	<tr valign="top" style="height:80%">
 		<td style="width:25%;">
 			<div class="wordsLeft">
 				<div id="player_list" class="guess_list">
@@ -32,6 +33,9 @@
 				<div class="gameInputWrapper">
 					<div class="textInputWrapper">
 						<div id="guess">
+							<h4>Type your guess below and press ENTER key</h4>
+							<br>
+							<br>
 							<input id="word_guess" maxlength="5" placeholder="Enter">
 							<p id="notice_ingame"></p>
 						</div>
@@ -48,6 +52,31 @@
 							</div>
 						<div id="overlay_notice">
 							<h4 id="notice_text">Loading...</h4>
+						</div>
+						<div id = "overlay_stats" style="display: none;">
+							<h4 style="height:5%;">Stats from past games</h4>
+							<table id="stats_table">
+									<tr style="height:5%">
+										<td>
+											<H4>For User:</H4>
+										</td>
+										<td>
+											<H4>Player Chosen word:</H4>
+										</td>
+										<td>
+											<H4>CPU Chosen word:</H4>
+										</td>
+										<td>
+											<H4>Player Guesses</H4>
+										</td>
+										<td>
+											<H4>CPU Guesses</H4>
+										</td>
+									</tr>
+								</table>
+							<div class = "exit_stats">
+								<button id="exit_stats_button" type="button">Exit Stats Screen!</button>
+							</div>
 						</div>
 						<div id="overlay_quit" style="display:none;">
 							Game over!
@@ -77,6 +106,15 @@
 				</div>
 			</div>
 		</td>
+	</tr>
+	<tr valign="top" align="center">
+		<td></td>
+		<td align="center">
+			<div class = "open_stats">
+				<button id="show_stats_button" valign="top" type="button">View past games!</button>
+			</div>
+		</td>
+		<td></td>
 	</tr>
 </table>
 </body>

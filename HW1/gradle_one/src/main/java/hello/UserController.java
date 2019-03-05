@@ -1,11 +1,16 @@
 package hello;
 
+import org.assertj.core.presentation.Representation;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONArray;
 import org.json.simple.parser.ParseException;
 import org.json.simple.parser.JSONParser;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.util.MimeType;
+import org.springframework.http.MediaType;
+import org.springframework.web.servlet.ModelAndView;
 
+import javax.print.attribute.standard.Media;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -134,14 +139,20 @@ public class UserController{
 
 
     @PostMapping(value = "/AddUser")
-    public void insert(@RequestBody Users user){
+    public ModelAndView insert(@ModelAttribute("user") Users user){
         //delete(user.getId());
+
         System.out.println("Inside of add users \n");
         this.userRepository.insert(user);
+        System.out.println(user.getUserName());
+
+        ModelAndView mv = new ModelAndView("home");
+
+        return mv;
     }
 
     @PostMapping(path = "/UpdateUser")
-    public void update(@RequestBody Users user) {
+    public void update(@ModelAttribute Users user) {
         this.userRepository.save(user);
 
     }
