@@ -19,7 +19,7 @@
 			<h2>CPU's Guesses</h2>
 		</td>
 	</tr>
-	<tr valign="top">
+	<tr valign="top" style="height:80%">
 		<td style="width:25%;">
 			<div class="wordsLeft">
 				<div id="player_list" class="guess_list">
@@ -32,6 +32,9 @@
 				<div class="gameInputWrapper">
 					<div class="textInputWrapper">
 						<div id="guess">
+							<h4>Type your guess below and press ENTER key</h4>
+							<br>
+							<br>
 							<input id="word_guess" maxlength="5" placeholder="Enter">
 							<p id="notice_ingame"></p>
 						</div>
@@ -48,6 +51,51 @@
 							</div>
 						<div id="overlay_notice">
 							<h4 id="notice_text">Loading...</h4>
+						</div>
+						<div id = "overlay_stats">
+							<table>
+									<tr style="height:5%">
+										<td>
+											<h4>Stats from past games</h4>
+										</td>
+										<td>
+											<h4>For User:
+												<div class = "username"></div>
+											</h4>
+										</td>
+									</tr>
+									<tr style="height:5%">
+										<td>
+											<H4>Player Chosen word:</H4>
+											<div class ="past_player_word">
+											</div>
+										</td>
+										<td>
+											<H4>CPU Chosen word:</H4>
+											<div class ="past_CPU_word">
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<H4>Player Guesses</H4>
+											<div class="pastGames">
+												<div class ="past_player_guesses">
+												</div>
+											</div>
+										</td>
+										<td>
+											<H4>CPU Guesses</H4>
+											<div class="pastGames">
+												<div class ="past_CPU_guesses">
+												</div>
+											</div>
+										</td>
+									</tr>
+								</table>
+							<div class = "exit_stats">
+								<button type="button">Exit Stats Screen!</button>
+							</div>
 						</div>
 						<div id="overlay_quit" style="display:none;">
 							Game over!
@@ -77,6 +125,15 @@
 				</div>
 			</div>
 		</td>
+	</tr>
+	<tr valign="top" align="center">
+		<td></td>
+		<td align="center">
+			<div class = "open_stats">
+				<button valign="top" type="button">View past games!</button>
+			</div>
+		</td>
+		<td></td>
 	</tr>
 </table>
 </body>

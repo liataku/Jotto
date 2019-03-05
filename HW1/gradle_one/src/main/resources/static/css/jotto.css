@@ -91,6 +91,41 @@
 	text-align: center;
 }
 
+#overlay_stats {
+	position: absolute;
+	display: block;
+
+	width: 90%;
+	height: 90%;
+
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	-ms-transform: translate(-50%,-50%);
+   border: 2px solid transparent;
+   border-radius: 25px;
+	      background-image:
+                      linear-gradient(to top,
+                      #4cc8c4,
+                      #30bcc2,
+                      #00afbf,
+                      #009ebb,
+                      #008db5,
+                      #007cac,
+                      #006ba1);
+    z-index:3;
+
+	text-align: center;
+}
+username{}
+past_player_word{}
+past_CPU_word{}
+past_player_guesses{}
+past_cpu_guesses{}
+exit_stats{}
+open_stats{}
+
+
 #word_start {
 	max-width: 100px;
 	min-width: 100px;
@@ -99,10 +134,6 @@
 }
 
 #word_guess {
-	max-width: 100px;
-	min-width: 100px;
-	max-height: 30px;
-	min-height: 30px;
 }
 
 #lists {
