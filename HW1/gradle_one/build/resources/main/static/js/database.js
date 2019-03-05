@@ -77,7 +77,7 @@ function getAllGames(callback){
         for (i = 0; i < data.length; i++) {
             entry = data[i];
             if (entry != null) {
-                rows += "<tr>";
+                rows += "<tr style=\"min-height:100px;\">";
                 rows += "<td><div class=\"username\">" + entry.playerName + "</div></td>";
                 rows += "<td><div class=\"past_player_word\">" + entry.player_Word + "</div></td>";
                 rows += "<td><div class=\"past_CPU_word\">" + entry.cpu_Word + "</div></td>";
@@ -116,6 +116,7 @@ function getAllGames(callback){
                 rows += "</tr>";
             }
         }
+        console.log(rows);
         callback(rows);
     })
 
