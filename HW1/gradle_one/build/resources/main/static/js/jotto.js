@@ -136,7 +136,7 @@ window.onload = function() {
          }, "text");
     }
     user = document.getElementById(USER).innerHTML;
-    $.get("http://localhost:8080/users/Users/" + user, function(user) {
+    $.get("/users/Users/" + user, function(user) {
         userObj = user;
         console.log(userObj);
     });
@@ -502,7 +502,7 @@ function saveGame(player) {
 	    console.log(userObj);
 
 		/* Make call to MongoDB database to save records of current game. */
-		$.post("http://localhost:8080/users/UpdateUser", userObj, function(data) {
+		$.post("/users/UpdateUser", userObj, function(data) {
 		    console.log(data);
 		    /* When done, tell the program that saving is complete. */
             SAVING = false;
@@ -523,21 +523,21 @@ function saveGame(player) {
 // Returns a list of all a users guesses
 function getAllUsersGuesses(id)
 {
-    $.get("http://localhost:8080/users/AllUserGuesses/" + id, function(data){
+    $.get("/users/AllUserGuesses/" + id, function(data){
         console.log(data);
     })
 }
 
 function getAllGuesses()
 {
-    $.get("http://localhost:8080/users/AllGuesses", function(data){
+    $.get("/users/AllGuesses", function(data){
         console.log(data);
     })
 }
 
 function getUserByUsername(username){
 
-    $.get("http://localhost:8080/users/Users/" + username, function(data){
+    $.get("/users/Users/" + username, function(data){
         console.log(data);
     })
 }
@@ -545,7 +545,7 @@ function getUserByUsername(username){
 
 function getUserById(id){
 
-    $.get("http://localhost:8080/users/GetUser/" + id, function(data){
+    $.get("/users/GetUser/" + id, function(data){
         console.log(data);
     })
 }
@@ -553,13 +553,13 @@ function getUserById(id){
 //Gets all of a users games
 function getAllUserGames(id){
 
-    $.get("http://localhost:8080/users/AllUserGames/" + id, function(data){
+    $.get("/users/AllUserGames/" + id, function(data){
         console.log(data);
     })
 }
 
 function getAllGames(callback){
-    $.get("http://localhost:8080/users/AllGames", function(data){
+    $.get("/users/AllGames", function(data){
         console.log(data);
         var i = 0, j = 0, k = 0, p_guesses = "", c_guesses = "", rows = "", entry, guesses;
         for (i = 0; i < data.length; i++) {
