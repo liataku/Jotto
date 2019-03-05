@@ -7,14 +7,16 @@ public class Games{
 
     private Date date;
     private String playerName;
+    private String player_Word;
     private String cpu_Word;
     private ArrayList<Guesses> guesses;
     private int gameNum = 0;
 
-    public Games(Date date, String playerName, String cpu_Word)
+    public Games(Date date, String playerName, String player_Word, String cpu_Word)
     {
         this.date = date;
         this.playerName = playerName;
+        this.player_Word = player_Word;
         this.cpu_Word = cpu_Word;
         guesses = new ArrayList<Guesses>();
         gameNum++;
@@ -35,6 +37,10 @@ public class Games{
     public void setPlayerName(String playerName) {
         this.playerName = playerName;
     }
+
+    public String getPlayer_Word() { return this.player_Word; }
+
+    public void setPlayer_Word(String player_Word) { this.player_Word = player_Word; }
 
     public String getCpu_Word() {
         return cpu_Word;

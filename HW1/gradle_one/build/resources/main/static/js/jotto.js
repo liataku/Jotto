@@ -6,20 +6,6 @@
  *
  */
 
-/* Boolean switch to track if HTML 5 Local Storage is an option. */
-/*var STORAGE = false;*/
-
-/* Check if HTML 5 Local Storage is supported. */
-/*
-function supportsStorage() {
-	try {
-		return 'localStorage' in window && window['localStorage'] !== null;
-	} catch (e) {
-		return false;
-	}
-}
-*/
-
 /* Object used to store records of current game. */
 var recordObj = {};
 const record_template =
@@ -118,6 +104,12 @@ const GUESS = "guess";
 const WORD_GUESS = "word_guess";
 const NOTICE_INGAME = "notice_ingame";
 
+const SHOW_STATS_BUTTON = "show_stats_button";
+const EXIT_STATS_BUTTON = "exit_stats_button";
+const OVERLAY_STATS = "overlay_stats";
+const STATS_USER = "stats_user";
+const STATS_TABLE = "stats_table";
+
 /* Set up by loading dictionary of 5-letter words with no repeating letters. */
 const LETTER_FILE = "words.txt"
 var WORDS =[];
@@ -152,6 +144,20 @@ function doneLoading() {
             makeGuess();
         }
     }
+    document.getElementById(SHOW_STATS_BUTTON).onclick = showStats;
+    document.getElementById(EXIT_STATS_BUTTON).onclick = exitStats;
+}
+
+function showStats() {
+    var rows = getAllGames(function (rows) {
+        document.getElementById(STATS_TABLE).innerHTML += rows;
+        document.getElementById(OVERLAY_STATS).style.display = "";
+    });
+}
+
+function exitStats() {
+    document.getElementById(OVERLAY_STATS).style.display = "none";
+    document.getElementById(STATS_TABLE).innerHTML = "";
 }
 
 function validInput(str) {

@@ -66,6 +66,7 @@ public class Guesses{
     public ArrayList<String> getCorrect_Array() {
         return correct_Array;
     }
+
     public void setCorrect_Array(ArrayList<String> correct_Array) {
         this.correct_Array = correct_Array;
     }

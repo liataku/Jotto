@@ -7,6 +7,7 @@
 </head>
 <script src="/js/jquery-3.3.1.min.js" th:src="@{/js/jquery-3.3.1.min.js}"></script>
 <script src="/js/jotto.js" th:src="@{/js/jotto.js}"></script>
+<script src="/js/database.js" th:src="@{/js/database.js}"></script>
 <body>
 <table>
 	<tr valign="bottom" style="height:10%">
@@ -52,49 +53,29 @@
 						<div id="overlay_notice">
 							<h4 id="notice_text">Loading...</h4>
 						</div>
-						<div id = "overlay_stats">
-							<table>
+						<div id = "overlay_stats" style="display: none;">
+							<h4 style="height:5%;">Stats from past games</h4>
+							<table id="stats_table">
 									<tr style="height:5%">
 										<td>
-											<h4>Stats from past games</h4>
+											<H4>For User:</H4>
 										</td>
-										<td>
-											<h4>For User:
-												<div class = "username"></div>
-											</h4>
-										</td>
-									</tr>
-									<tr style="height:5%">
 										<td>
 											<H4>Player Chosen word:</H4>
-											<div class ="past_player_word">
-											</div>
 										</td>
 										<td>
 											<H4>CPU Chosen word:</H4>
-											<div class ="past_CPU_word">
-											</div>
 										</td>
-									</tr>
-									<tr>
 										<td>
 											<H4>Player Guesses</H4>
-											<div class="pastGames">
-												<div class ="past_player_guesses">
-												</div>
-											</div>
 										</td>
 										<td>
 											<H4>CPU Guesses</H4>
-											<div class="pastGames">
-												<div class ="past_CPU_guesses">
-												</div>
-											</div>
 										</td>
 									</tr>
 								</table>
 							<div class = "exit_stats">
-								<button type="button">Exit Stats Screen!</button>
+								<button id="exit_stats_button" type="button">Exit Stats Screen!</button>
 							</div>
 						</div>
 						<div id="overlay_quit" style="display:none;">
@@ -130,7 +111,7 @@
 		<td></td>
 		<td align="center">
 			<div class = "open_stats">
-				<button valign="top" type="button">View past games!</button>
+				<button id="show_stats_button" valign="top" type="button">View past games!</button>
 			</div>
 		</td>
 		<td></td>
