@@ -147,11 +147,12 @@ table{
        text-align: center;
        font-size: 18px;
        opacity:.85;
-   border: 2px solid transparent;
-   border-radius: 25px;
-         background: rgba(0,0,0,0.1);
-       	height: 70%;
-       	overflow-y: scroll;
+       height: 80%;
+       border: 2px solid transparent;
+       border-radius: 25px;
+       background: rgba(0,0,0,0.1);
+       overflow-y: scroll;
+
 
 
 }

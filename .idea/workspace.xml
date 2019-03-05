@@ -3,9 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="b452bf4f-5300-4dce-b7d3-e87341121701" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HW1/gradle_one/build/classes/java/main/hello/seeder.class" beforeDir="false" afterPath="$PROJECT_DIR$/HW1/gradle_one/build/classes/java/main/hello/seeder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HW1/gradle_one/build/libs/gs-accessing-data-mongodb-0.1.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/HW1/gradle_one/build/libs/gs-accessing-data-mongodb-0.1.0.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HW1/gradle_one/build/resources/main/static/css/StyleSheet.css" beforeDir="false" afterPath="$PROJECT_DIR$/HW1/gradle_one/build/resources/main/static/css/StyleSheet.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HW1/gradle_one/build/resources/main/templates/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/HW1/gradle_one/build/resources/main/templates/register.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HW1/gradle_one/build/resources/main/templates/test_jotto.html" beforeDir="false" afterPath="$PROJECT_DIR$/HW1/gradle_one/build/resources/main/templates/test_jotto.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/HW1/gradle_one/src/main/resources/static/css/StyleSheet.css" beforeDir="false" afterPath="$PROJECT_DIR$/HW1/gradle_one/src/main/resources/static/css/StyleSheet.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HW1/gradle_one/src/main/resources/static/css/jotto.css" beforeDir="false" afterPath="$PROJECT_DIR$/HW1/gradle_one/src/main/resources/static/css/jotto.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HW1/gradle_one/src/main/resources/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/HW1/gradle_one/src/main/resources/templates/login.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/HW1/gradle_one/src/main/resources/templates/test_jotto.html" beforeDir="false" afterPath="$PROJECT_DIR$/HW1/gradle_one/src/main/resources/templates/test_jotto.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -49,18 +52,12 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/HW1/gradle_one/src/main/resources/templates/test_jotto.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="536">
-              <caret line="132" column="16" selection-start-line="132" selection-start-column="16" selection-end-line="132" selection-end-column="16" />
+            <state relative-caret-position="717">
+              <caret line="82" column="28" selection-start-line="82" selection-start-column="28" selection-end-line="82" selection-end-column="28" />
               <folding>
-                <element signature="n#style#0;n#tr#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#0;n#tr#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#1;n#tr#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#2;n#tr#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#tr#1;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#0;n#tr#1;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#1;n#tr#1;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#tr#0;n#table#0;n#div#4;n#div#0;n#div#0;n#div#0;n#div#0;n#td#1;n#tr#1;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#tr#0;n#table#0;n#h4#0;n#h4#0;n#div#4;n#div#0;n#div#0;n#div#0;n#div#0;n#td#1;n#tr#1;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#4;n#div#0;n#div#0;n#div#0;n#div#0;n#td#1;n#tr#1;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#h4#0;n#div#4;n#div#0;n#div#0;n#div#0;n#div#0;n#td#1;n#tr#1;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#tr#0;n#table#0;n#div#0;n#div#4;n#div#0;n#div#0;n#div#0;n#div#0;n#td#1;n#tr#1;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -69,17 +66,29 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/HW1/gradle_one/src/main/resources/static/css/StyleSheet.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-560">
-              <caret line="132" column="13" selection-start-line="132" selection-start-column="13" selection-end-line="132" selection-end-column="13" />
+            <state relative-caret-position="324">
+              <caret line="149" column="17" selection-start-line="149" selection-start-column="17" selection-end-line="149" selection-end-column="17" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/HW1/gradle_one/build/resources/main/templates/register.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="493">
+              <caret line="29" column="25" selection-start-line="29" selection-start-column="25" selection-end-line="29" selection-end-column="25" />
+              <folding>
+                <element signature="n#style#0;n#div#2;n#form#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/HW1/gradle_one/src/main/resources/static/css/jotto.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="646">
-              <caret line="125" selection-start-line="125" selection-end-line="125" selection-end-column="10" />
+            <state relative-caret-position="188">
+              <caret line="93" column="12" selection-start-line="93" selection-start-column="1" selection-end-line="93" selection-end-column="12" />
             </state>
           </provider>
         </entry>
@@ -88,9 +97,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>line</find>
-      <find>l</find>
-      <find>white</find>
       <find>list</find>
       <find>notice</find>
       <find>ingame</find>
@@ -103,7 +109,6 @@
       <find>begin</find>
       <find>overlay</find>
       <find>button</find>
-      <find>game</find>
       <find>gameinput</find>
       <find>height</find>
       <find>gameIn</find>
@@ -113,6 +118,15 @@
       <find>stat</find>
       <find>stats</find>
       <find>td</find>
+      <find>pastGame</find>
+      <find>past</find>
+      <find>game</find>
+      <find>absol</find>
+      <find>align</find>
+      <find>stats_tab</find>
+      <find>pastGames</find>
+      <find>overlay_sta</find>
+      <find>over</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -135,9 +149,10 @@
         <option value="$PROJECT_DIR$/HW1/gradle_one/src/main/resources/templates/home.html" />
         <option value="$PROJECT_DIR$/HW1/gradle_one/src/main/resources/templates/hello.html" />
         <option value="$PROJECT_DIR$/HW1/gradle_one/src/main/resources/templates/login.html" />
-        <option value="$PROJECT_DIR$/HW1/gradle_one/src/main/resources/static/css/StyleSheet.css" />
         <option value="$PROJECT_DIR$/HW1/gradle_one/src/main/resources/static/css/jotto.css" />
         <option value="$PROJECT_DIR$/HW1/gradle_one/src/main/resources/templates/test_jotto.html" />
+        <option value="$PROJECT_DIR$/HW1/gradle_one/src/main/resources/static/css/StyleSheet.css" />
+        <option value="$PROJECT_DIR$/HW1/gradle_one/build/resources/main/templates/register.html" />
       </list>
     </option>
   </component>
@@ -174,23 +189,14 @@
               <item name="cse-308-team-green" type="462c0819:PsiDirectoryNode" />
               <item name="HW1" type="462c0819:PsiDirectoryNode" />
               <item name="gradle_one" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="build" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="cse-308-team-green" type="b2602c69:ProjectViewProjectNode" />
               <item name="cse-308-team-green" type="462c0819:PsiDirectoryNode" />
               <item name="HW1" type="462c0819:PsiDirectoryNode" />
               <item name="gradle_one" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cse-308-team-green" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cse-308-team-green" type="462c0819:PsiDirectoryNode" />
-              <item name="HW1" type="462c0819:PsiDirectoryNode" />
-              <item name="gradle_one" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="build" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -198,30 +204,18 @@
               <item name="cse-308-team-green" type="462c0819:PsiDirectoryNode" />
               <item name="HW1" type="462c0819:PsiDirectoryNode" />
               <item name="gradle_one" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="build" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="cse-308-team-green" type="b2602c69:ProjectViewProjectNode" />
               <item name="cse-308-team-green" type="462c0819:PsiDirectoryNode" />
               <item name="HW1" type="462c0819:PsiDirectoryNode" />
               <item name="gradle_one" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="build" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cse-308-team-green" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cse-308-team-green" type="462c0819:PsiDirectoryNode" />
-              <item name="HW1" type="462c0819:PsiDirectoryNode" />
-              <item name="gradle_one" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -279,7 +273,7 @@
     <frame x="-7" y="-7" width="1294" height="934" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19773096" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20745543" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -342,16 +336,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/HW1/gradle_one/src/main/java/hello/MvcConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="7" selection-start-line="3" selection-start-column="7" selection-end-line="3" selection-end-column="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/HW1/gradle_one/src/main/java/hello/MvcConfig.java" />
     <entry file="file://$PROJECT_DIR$/HW1/gradle_one/src/main/java/hello/WebSecurityConfig.java">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -457,33 +442,37 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/HW1/gradle_one/src/main/resources/templates/test_jotto.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="536">
-          <caret line="132" column="16" selection-start-line="132" selection-start-column="16" selection-end-line="132" selection-end-column="16" />
+        <state relative-caret-position="717">
+          <caret line="82" column="28" selection-start-line="82" selection-start-column="28" selection-end-line="82" selection-end-column="28" />
           <folding>
-            <element signature="n#style#0;n#tr#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#0;n#tr#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#1;n#tr#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#2;n#tr#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#tr#1;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#0;n#tr#1;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#1;n#tr#1;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#tr#0;n#table#0;n#div#4;n#div#0;n#div#0;n#div#0;n#div#0;n#td#1;n#tr#1;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#tr#0;n#table#0;n#h4#0;n#h4#0;n#div#4;n#div#0;n#div#0;n#div#0;n#div#0;n#td#1;n#tr#1;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#4;n#div#0;n#div#0;n#div#0;n#div#0;n#td#1;n#tr#1;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#h4#0;n#div#4;n#div#0;n#div#0;n#div#0;n#div#0;n#td#1;n#tr#1;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#tr#0;n#table#0;n#div#0;n#div#4;n#div#0;n#div#0;n#div#0;n#div#0;n#td#1;n#tr#1;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/HW1/gradle_one/src/main/resources/static/css/StyleSheet.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-560">
-          <caret line="132" column="13" selection-start-line="132" selection-start-column="13" selection-end-line="132" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/HW1/gradle_one/src/main/resources/static/css/jotto.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
-          <caret line="125" selection-start-line="125" selection-end-line="125" selection-end-column="10" />
+        <state relative-caret-position="188">
+          <caret line="93" column="12" selection-start-line="93" selection-start-column="1" selection-end-line="93" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/HW1/gradle_one/src/main/resources/static/css/StyleSheet.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="149" column="17" selection-start-line="149" selection-start-column="17" selection-end-line="149" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/HW1/gradle_one/build/resources/main/templates/register.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="29" column="25" selection-start-line="29" selection-start-column="25" selection-end-line="29" selection-end-column="25" />
+          <folding>
+            <element signature="n#style#0;n#div#2;n#form#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
