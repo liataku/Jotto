@@ -6,14 +6,19 @@
  *
  */
 
+/* Variable for storing current user's name. */
+var user;
+
+var userObj = {};
+
 /* Object used to store records of current game. */
 var recordObj = {};
 const record_template =
 {
 	"date": "",
-	"player": "",
-	"player_word": "",
-	"cpu_word": "",
+	"playerName": "",
+	"player_Word": "",
+	"cpu_Word": "",
 	"guesses": []
 };
 
@@ -23,8 +28,8 @@ const guess_template =
 {
 	"type": "",
 	"guess": "",
-	"correct_int": 0,
-	"correct_array": []
+	"correct_num": 0,
+	"correct_Array": []
 };
 
 /* Type codes for storing guess objects in game record. */
@@ -129,6 +134,11 @@ window.onload = function() {
                  doneLoading();
              }
          }, "text");
+        user = document.getElementById(USER).innerHTML;
+        $.get("http://localhost:8080/Users" + user, function(user) {
+            userObj = user;
+            console.log(userObj);
+        });
     }
 }
 
@@ -149,7 +159,6 @@ function doneLoading() {
     document.getElementById(SHOW_STATS_BUTTON).onclick = showStats;
     document.getElementById(EXIT_STATS_BUTTON).onclick = exitStats;
 
-    console.log(document.getElementById(USER).innerHTML);
 }
 
 function showStats() {
@@ -487,23 +496,26 @@ function saveGame(player) {
 	/* Only continue if no games in progress. */
 	if (SAVING && !PLAYING) {
 	    console.log("Calling saveGame()...");
-		/* Make call to MongoDB database to save records of current game. */
-		// TODO
-		// Communicate with MongoDB to save records
-		
-		/* When done, tell the program that saving is complete. */
-		// NOTE: This should only be done in a callback when DB query is finished.
-		SAVING = false;
+	    /* Update stored user object. */
+	    userObj.games.push(recordObj);
 
-		if (player) {
-            /* Inform player that they have won the game, then save game record. */
-            document.getElementById(NOTICE_QUIT).innerHTML = NOTICE_WIN;
-		} else {
-            /* If CPU has successfully guessed player's word, inform player of their loss. */
-            document.getElementById(NOTICE_QUIT).innerHTML = NOTICE_LOSS;
-		}
-        document.getElementById(OVERLAY_QUIT).style.display = "block";
-        document.getElementById(NOTICE_QUIT).style.display = "block";
+	    console.log(userObj);
+
+		/* Make call to MongoDB database to save records of current game. */
+		$.post("http://localhost:8080/users/UpdateUser", userObj, function(data) {
+		    /* When done, tell the program that saving is complete. */
+            SAVING = false;
+
+            if (player) {
+                /* Inform player that they have won the game, then save game record. */
+                document.getElementById(NOTICE_QUIT).innerHTML = NOTICE_WIN;
+            } else {
+                /* If CPU has successfully guessed player's word, inform player of their loss. */
+                document.getElementById(NOTICE_QUIT).innerHTML = NOTICE_LOSS;
+            }
+            document.getElementById(OVERLAY_QUIT).style.display = "block";
+            document.getElementById(NOTICE_QUIT).style.display = "block";
+		});
 	}
 }
 
