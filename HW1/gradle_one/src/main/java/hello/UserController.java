@@ -154,6 +154,7 @@ public class UserController{
 
     @PostMapping(path = "/UpdateUser")
     public void update(@ModelAttribute Users user) {
+        System.out.println(user);
         this.userRepository.save(user);
 
     }

@@ -134,12 +134,12 @@ window.onload = function() {
                  doneLoading();
              }
          }, "text");
-        user = document.getElementById(USER).innerHTML;
-        $.get("http://localhost:8080/Users" + user, function(user) {
-            userObj = user;
-            console.log(userObj);
-        });
     }
+    user = document.getElementById(USER).innerHTML;
+    $.get("http://localhost:8080/users/Users/" + user, function(user) {
+        userObj = user;
+        console.log(userObj);
+    });
 }
 
 function doneLoading() {
@@ -497,12 +497,13 @@ function saveGame(player) {
 	if (SAVING && !PLAYING) {
 	    console.log("Calling saveGame()...");
 	    /* Update stored user object. */
-	    userObj.games.push(recordObj);
+	    userObj.allGamesFromUser.push(recordObj);
 
 	    console.log(userObj);
 
 		/* Make call to MongoDB database to save records of current game. */
 		$.post("http://localhost:8080/users/UpdateUser", userObj, function(data) {
+		    console.log(data);
 		    /* When done, tell the program that saving is complete. */
             SAVING = false;
 
