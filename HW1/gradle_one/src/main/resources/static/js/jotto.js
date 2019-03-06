@@ -497,7 +497,7 @@ function saveGame(player) {
 	if (SAVING && !PLAYING) {
 	    console.log("Calling saveGame()...");
 	    /* Update stored user object. */
-	    userObj.allGamesFromUser.push(recordObj);
+	    userObj.games = recordObj;
 
 	    console.log(userObj);
 

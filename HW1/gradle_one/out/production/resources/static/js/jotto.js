@@ -6,14 +6,19 @@
  *
  */
 
+/* Variable for storing current user's name. */
+var user;
+
+var userObj = {};
+
 /* Object used to store records of current game. */
 var recordObj = {};
 const record_template =
 {
 	"date": "",
-	"player": "",
-	"player_word": "",
-	"cpu_word": "",
+	"playerName": "",
+	"player_Word": "",
+	"cpu_Word": "",
 	"guesses": []
 };
 
@@ -23,8 +28,8 @@ const guess_template =
 {
 	"type": "",
 	"guess": "",
-	"correct_int": 0,
-	"correct_array": []
+	"correct_num": 0,
+	"correct_Array": []
 };
 
 /* Type codes for storing guess objects in game record. */
@@ -87,6 +92,8 @@ const NOTICE_WIN = "Congratulations! You've won!";
 const NOTICE_LOSS = "Congratulations! You've lost!";
 
 /* HTML ID tags for game page elements. */
+const USER = "user";
+
 const OVERLAY = "overlay";
 const OVERLAY_PROMPT = "overlay_prompt";
 const OVERLAY_NOTICE = "overlay_notice";
@@ -128,6 +135,11 @@ window.onload = function() {
              }
          }, "text");
     }
+    user = document.getElementById(USER).innerHTML;
+    $.get("/users/Users/" + user, function(user) {
+        userObj = user;
+        console.log(userObj);
+    });
 }
 
 function doneLoading() {
@@ -146,6 +158,7 @@ function doneLoading() {
     }
     document.getElementById(SHOW_STATS_BUTTON).onclick = showStats;
     document.getElementById(EXIT_STATS_BUTTON).onclick = exitStats;
+
 }
 
 function showStats() {
@@ -483,22 +496,116 @@ function saveGame(player) {
 	/* Only continue if no games in progress. */
 	if (SAVING && !PLAYING) {
 	    console.log("Calling saveGame()...");
-		/* Make call to MongoDB database to save records of current game. */
-		// TODO
-		// Communicate with MongoDB to save records
-		
-		/* When done, tell the program that saving is complete. */
-		// NOTE: This should only be done in a callback when DB query is finished.
-		SAVING = false;
+	    /* Update stored user object. */
+	    userObj.games = recordObj;
 
-		if (player) {
-            /* Inform player that they have won the game, then save game record. */
-            document.getElementById(NOTICE_QUIT).innerHTML = NOTICE_WIN;
-		} else {
-            /* If CPU has successfully guessed player's word, inform player of their loss. */
-            document.getElementById(NOTICE_QUIT).innerHTML = NOTICE_LOSS;
-		}
-        document.getElementById(OVERLAY_QUIT).style.display = "block";
-        document.getElementById(NOTICE_QUIT).style.display = "block";
+	    console.log(userObj);
+
+		/* Make call to MongoDB database to save records of current game. */
+		$.post("/users/UpdateUser", userObj, function(data) {
+		    console.log(data);
+		    /* When done, tell the program that saving is complete. */
+            SAVING = false;
+
+            if (player) {
+                /* Inform player that they have won the game, then save game record. */
+                document.getElementById(NOTICE_QUIT).innerHTML = NOTICE_WIN;
+            } else {
+                /* If CPU has successfully guessed player's word, inform player of their loss. */
+                document.getElementById(NOTICE_QUIT).innerHTML = NOTICE_LOSS;
+            }
+            document.getElementById(OVERLAY_QUIT).style.display = "block";
+            document.getElementById(NOTICE_QUIT).style.display = "block";
+		});
 	}
 }
+
+// Returns a list of all a users guesses
+function getAllUsersGuesses(id)
+{
+    $.get("/users/AllUserGuesses/" + id, function(data){
+        console.log(data);
+    })
+}
+
+function getAllGuesses()
+{
+    $.get("/users/AllGuesses", function(data){
+        console.log(data);
+    })
+}
+
+function getUserByUsername(username){
+
+    $.get("/users/Users/" + username, function(data){
+        console.log(data);
+    })
+}
+
+
+function getUserById(id){
+
+    $.get("/users/GetUser/" + id, function(data){
+        console.log(data);
+    })
+}
+
+//Gets all of a users games
+function getAllUserGames(id){
+
+    $.get("/users/AllUserGames/" + id, function(data){
+        console.log(data);
+    })
+}
+
+function getAllGames(callback){
+    $.get("/users/AllGames", function(data){
+        console.log(data);
+        var i = 0, j = 0, k = 0, p_guesses = "", c_guesses = "", rows = "", entry, guesses;
+        for (i = 0; i < data.length; i++) {
+            entry = data[i];
+            if (entry != null) {
+                rows += "<tr style=\"min-height:100px;\">";
+                rows += "<td><div class=\"username\">" + entry.playerName + "</div></td>";
+                rows += "<td><div class=\"past_player_word\">" + entry.player_Word + "</div></td>";
+                rows += "<td><div class=\"past_CPU_word\">" + entry.cpu_Word + "</div></td>";
+                p_guesses = "";
+                c_guesses = "";
+                guesses = entry.guesses;
+                for (j = 0; j < guesses.length; j++) {
+                    if (guesses[j].type == "player") {
+                        p_guesses += "<p>";
+                        for (k = 0; k < 5; k++) {
+                            if (guesses[j].correct_Array[k] == "true") {
+                                p_guesses += "<mark style=\"background-color:#55a866\">" + guesses[j].guess.charAt(k) + "</mark>";
+                            } else if (guesses[j].correct_Array[k] == "false") {
+                                p_guesses += "<mark style=\"background-color:#a85555\">" + guesses[j].guess.charAt(k) + "</mark>";
+                            }
+                        }
+                        p_guesses += "</p>";
+                    } else if (guesses[j].type == "cpu") {
+                        c_guesses += "<p>";
+                        for (k = 0; k < 5; k++) {
+                            if (guesses[j].correct_Array[k] == "true") {
+                                c_guesses += "<mark style=\"background-color:#55a866\">" + guesses[j].guess.charAt(k) + "</mark>";
+                            } else if (guesses[j].correct_Array[k] == "false") {
+                                c_guesses += "<mark style=\"background-color:#a85555\">" + guesses[j].guess.charAt(k) + "</mark>";
+                            }
+                        }
+                        c_guesses += "</p>";
+                    }
+                }
+                rows += "<td><div class=\"pastGames\"><div class=\"past_player_guesses\">"
+                    + p_guesses
+                    + "</div></div></td>";
+                rows += "<td><div class=\"pastGames\"><div class=\"past_CPU_guesses\">"
+                    + c_guesses
+                    + "</div></div></td>";
+                rows += "</tr>";
+            }
+        }
+        console.log(rows);
+        callback(rows);
+    })
+}
+

@@ -3,11 +3,12 @@
 <head>
 	<link rel="stylesheet" type="text/css" href="/css/jotto.css" th:href="@{/css/jotto.css}" >
 	<link rel="stylesheet" type="text/css" href="/css/StyleSheet.css" th:href="@{/css/StyleSheet.css}" >
-	<link href="https://fonts.googleapis.com/css?family=Poppins:500" rel="stylesheet">	<title>Jotto</title>
+	<link href="https://fonts.googleapis.com/css?family=Poppins:500" rel="stylesheet">
+	<title>Jotto</title>
 </head>
+<p id="user" style="display:none;">[[${#httpServletRequest.remoteUser}]]</p>
 <script src="/js/jquery-3.3.1.min.js" th:src="@{/js/jquery-3.3.1.min.js}"></script>
 <script src="/js/jotto.js" th:src="@{/js/jotto.js}"></script>
-<script src="/js/database.js" th:src="@{/js/database.js}"></script>
 <body>
 <table>
 	<tr valign="bottom" style="height:10%">
@@ -53,11 +54,12 @@
 						<div id="overlay_notice">
 							<h4 id="notice_text">Loading...</h4>
 						</div>
-						<div id = "overlay_stats" style="display: none;">
+						<div id = "overlay_stats" style="display: none;" text-align="center">
 							<h4 style="height:5%;">Stats from past games</h4>
-							<table id="stats_table">
-									<tr style="height:5%">
-										<td>
+							<div class = "pastGames">
+							<table id="stats_table" align ="center" text-align="center">
+									<tr style="height:5%" align ="center">
+										<td >
 											<H4>For User:</H4>
 										</td>
 										<td>
@@ -74,6 +76,8 @@
 										</td>
 									</tr>
 								</table>
+							</div>
+							<br>
 							<div class = "exit_stats">
 								<button id="exit_stats_button" type="button">Exit Stats Screen!</button>
 							</div>
@@ -112,6 +116,13 @@
 		<td align="center">
 			<div class = "open_stats">
 				<button id="show_stats_button" valign="top" type="button">View past games!</button>
+			</div>
+			<div style="line-height:10%" align="center">
+			<form th:action="@{/logout}" method="post" style="line-height:5%">
+				</br>
+				</br>
+				<input type="submit" value="Log Out"/>
+			</form>
 			</div>
 		</td>
 		<td></td>

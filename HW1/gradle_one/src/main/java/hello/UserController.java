@@ -4,6 +4,7 @@ import org.json.simple.JSONObject;
 import org.json.simple.JSONArray;
 import org.json.simple.parser.ParseException;
 import org.json.simple.parser.JSONParser;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.util.MimeType;
 import org.springframework.http.MediaType;
@@ -153,10 +154,14 @@ public class UserController{
     }
 
     @PostMapping(path = "/UpdateUser")
-    public void update(@ModelAttribute Users user) {
+    public ModelAndView update(@ModelAttribute Users user) {
         String id = user.getId();
         this.userRepository.deleteById(id);
         this.userRepository.save(user);
+
+        ModelAndView mv = new ModelAndView("test_jotto");
+
+        return mv;
 
     }
 
